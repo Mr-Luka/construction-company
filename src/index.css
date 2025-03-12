@@ -5,9 +5,9 @@
 }
 
 body {
-	background: url('./assets/imgs/hero-img.jpg') no-repeat center center/cover;
 	min-height: 100vh;
 	position: relative;
+	overflow-x: hidden;
 }
 
 body::before {
@@ -22,126 +22,20 @@ a{
 	text-decoration: none;
 }
 
-header{
-	background: rgba(255, 255, 255, 0.09);
-	box-shadow: 0 0 5px black;
+.video-container {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
 }
 
-.navBar-container{
-	max-width: 1440px;
+.video-background {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
-	margin: 0 auto;
-	padding: 0 1rem;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+	filter: blur(2px)
 }
 
-.navBar-container nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-.navBar-container nav .logo {
-	color: white;
-	font-size: 0.7rem;
-	cursor: pointer;
-}
-
-.navBar-container .nav-link {
-	display: flex;
-	padding: 0.3rem 0;
-}
-
-.navBar-container .nav-link li {
-	list-style: none;
-	margin: 0 0.5rem;
-}
-
-.navBar-container ul li a {
-	color: white;
-	font-size: 0.9rem;
-	padding: 0.5rem 0.7rem;
-	display: block;
-	border-radius: 10px;
-}
-
-.navBar-container ul li a:hover,
-.navBar-container ul li a.active {
-	background-color: rgba(249, 249, 249, 0.093);
-	font-size: 1.2rem;
-}
-
-.responsive-navBar-content{
-	position: absolute;
-	top: 35%;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	text-align: center;
-}
-
-.responsive-navBar-content h2 {
-	font-size: 5rem;
-	color: white;
-	text-shadow: 1px 1px 2px black;
-}
-.responsive-navBar-content h3 {
-	color: white;
-	text-shadow: 1px 1px 2px black;
-	font-size: 2rem;
-}
-
-.house-icon {
-    display: inline-block;
-    transition: color 1s;
-    color: green; 
-}
-
-.house-icon:hover {
-    color: rgb(249, 171, 24); 
-}
-
-.house-icon:hover svg {
-    color: rgb(249, 171, 24); 
-}
-
-.sideBar-icon{
-	font-size: 1.5rem;
-	cursor: pointer;
-	display: none;
-}
-
-@media(max-width: 768px) {
-	.responsive-navBar-content h2{
-		font-size: 4rem;
-		text-align: center;
-	}
-
-	.responsive-navBar-content h3{
-		font-size: 1rem;
-	}
-
-	.sideBar-icon{
-		display: block;
-	}
-
-
-	.navBar-container .nav-link {
-		flex-direction: column;
-		justify-content: space-evenly;
-		align-items: center;
-		background-color: rgba(255, 255, 255, 0.2);
-		border-bottom-left-radius: 80px 80px;
-		box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
-		position: absolute;
-		width: 200px;
-		height: 30vh;
-		top: -800px;
-		right: 0;
-		z-index: 10;
-
-	}
-
-	.nav-link.active {
-		top: 4%;
-	}
-	
-
-}

@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 import { FaBarsStaggered } from "react-icons/fa6";
 import { TfiHome } from "react-icons/tfi";
+import './NavBar.css';
 
 export default function NavBar(){
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function NavBar(){
                 <div className='navBar-container'>
                     <nav>
                         <div className='logo'>
-                            <h2>logo image</h2>
+                            <h2>{<TfiHome size="2rem"/>}</h2>
                         </div>
                         <ul className={isOpen ? 'nav-link active' : 'nav-link'}>
                             <li><a href='#' className='active'>Home</a></li>
@@ -35,8 +36,8 @@ export default function NavBar(){
             <section>
                 <div className='navBar-container'>
                     <div className='responsive-navBar-content'>
-                        <h2>Eco<span className='house-icon'>{<TfiHome size='7rem'/>}</span>Rise</h2>
-                        <h3>construction</h3>
+                        <h2>Eco<span className='house-icon'>{<TfiHome />}</span>Rise</h2>
+                        <h3>CONSTRUCTION</h3>
                     </div>
 
                 </div>
