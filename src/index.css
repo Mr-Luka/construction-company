@@ -66,6 +66,7 @@ header{
 .navBar-container ul li a:hover,
 .navBar-container ul li a.active {
 	background-color: rgba(249, 249, 249, 0.093);
+	font-size: 1.2rem;
 }
 
 .responsive-navBar-content{
@@ -85,6 +86,20 @@ header{
 	color: white;
 	text-shadow: 1px 1px 2px black;
 	font-size: 2rem;
+}
+
+.house-icon {
+    display: inline-block;
+    transition: color 1s;
+    color: green; 
+}
+
+.house-icon:hover {
+    color: rgb(249, 171, 24); 
+}
+
+.house-icon:hover svg {
+    color: rgb(249, 171, 24); 
 }
 
 .sideBar-icon{
@@ -107,19 +122,26 @@ header{
 		display: block;
 	}
 
+
 	.navBar-container .nav-link {
 		flex-direction: column;
 		justify-content: space-evenly;
+		align-items: center;
 		background-color: rgba(255, 255, 255, 0.2);
-		border-radius: 25px;
+		border-bottom-left-radius: 80px 80px;
+		box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
 		position: absolute;
-		width: 350px;
-		height: 20vh;
-		top: 30px;
+		width: 200px;
+		height: 30vh;
+		top: -800px;
 		right: 0;
 		z-index: 10;
+
 	}
 
+	.nav-link.active {
+		top: 4%;
+	}
 	
 
 }
