@@ -24,7 +24,7 @@ function App() {
         <NavBar />
         <main className='main-content'>
           <div className='ecorise-text'>
-              <span className='house-icon'>{<TfiHome />}</span>
+              <span className='house-icon'><TfiHome /></span>
               <h2>Neighborhood</h2>
               <h3>REMODELING</h3>
           </div>

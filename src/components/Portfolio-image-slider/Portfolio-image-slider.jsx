@@ -47,7 +47,7 @@ export default function PortfolioImageSlider(){
                 <div className='right-arrow' onClick={goToNext}>&#x276F;</div>
                 <div style={slideStyles}></div>
                 <div className='dots-container'>
-                    {slides.map((slideIndex)=> (
+                    {slides.map((slide, slideIndex)=> (
                         <div 
                             key={slideIndex} 
                             className='dot'

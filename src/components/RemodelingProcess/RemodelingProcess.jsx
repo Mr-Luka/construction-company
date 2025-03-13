@@ -12,7 +12,7 @@ export default function RemodelingProcess(){
     return (
         <>
             <div className="remodeling-process">
-                <h2 className='remodeling-title'>How We Work ?</h2>
+                <h2 className='remodeling-title'>Our Remodeling Process</h2>
                 <p className='remodeling-text'>Transforming your home should be an exciting and seamless experience. At Neighborhood Remodeling, we deliver top-tier craftsmanship with a meticulous process designed to enhance efficiency, prevent delays, and bring your vision to life. Whether it's a complete renovation or a targeted upgrade, we ensure every detail reflects the highest standards of quality and design.</p>
                 <div className='remodeling-steps'>
                     <div className='remodeling-step'>
