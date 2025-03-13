@@ -1,0 +1,34 @@
+
+.about {
+    width: 100%;
+    background-color: rgba(226, 153, 6, 0.707);
+    text-align: center;
+    position: relative;
+    padding: 1rem 0 5rem 0;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+}
+
+.about h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0 1rem 0;
+    color: white;
+}
+
+.about p{
+    font-size: 1rem;
+    margin: 1rem 2rem 1rem 2rem;
+    color: rgb(0, 0, 0);
+    text-align:start;
+}
+
+.my-picture img {
+    width: 90%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 5px 5px 15px black;
+}
+
+@media (max-width: 768px) {
+   
+}

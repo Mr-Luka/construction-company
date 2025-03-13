@@ -51,47 +51,6 @@ header {
   font-size: 1.2rem;
 }
 
-.responsive-navBar-content {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  text-align: center;
-}
-
-.responsive-navBar-content h2 {
-  font-size: 5rem;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: 0.6rem;
-  font-weight: 500;
-}
-
-.responsive-navBar-content h3 {
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  font-size: 1.4rem;
-  font-family: "Montserrat", sans-serif;
-  letter-spacing: 0.6rem;
-}
-
-.house-icon {
-  display: inline-block;
-  transition: color 1s;
-  color: green;
-}
-.house-icon svg {
-    font-size: 7rem;
-}
-
-.house-icon:hover {
-  color: rgb(249, 171, 24);
-}
-
-.house-icon:hover svg {
-  color: rgb(249, 171, 24);
-}
 
 .sideBar-icon {
   font-size: 1.5rem;
@@ -121,17 +80,17 @@ header {
 
   .navBar-container .nav-link {
     flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	background-color: rgba(255, 255, 255, 0.399);
-	border-bottom-left-radius: 80px 80px;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
-	position: absolute;
-	width: 200px;
-	height: 30vh;
-	top: -800px;
-	right: 0;
-	z-index: 10;
+	  justify-content: space-evenly;
+	  align-items: center;
+	  background-color: rgba(255, 255, 255, 0.399);
+	  border-bottom-left-radius: 80px 80px;
+	  box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
+	  position: absolute;
+	  width: 200px;
+	  height: 30vh;
+	  top: -800px;
+	  right: 0;
+	  z-index: 10;
   }
 
   .navBar-container ul li a{

@@ -1,41 +1,132 @@
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
-	min-height: 100vh;
-	position: relative;
-	overflow-x: hidden;
+  height: auto;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body::before {
-	position: absolute;
-	content: '';
-	width: 100%;
-	height: 100%;
-	z-index: -1;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-a{
-	text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 .video-container {
-	position: relative;
-	min-height: 100vh;
-	overflow: hidden;
+  position: relative;
+  height: 100vh; /* Use vh for viewport height */
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.069);
 }
 
 .video-background {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	z-index: -2;
-	filter: blur(2px)
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(2px);
 }
 
+.main-content {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Fill the parent */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding-top: 20rem;
+}
+
+.ecorise-text {
+  text-align: center;
+  margin: 120rem 0 0rem 0;
+}
+
+.ecorise-text h2 {
+  font-size: 5rem;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.6rem;
+  font-weight: 500;
+}
+
+.ecorise-text h3 {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.6rem;
+  font-weight: 400;
+}
+
+.house-icon {
+  display: inline-block;
+  transition: color 1s;
+  color: green;
+}
+.house-icon svg {
+  font-size: 7rem;
+}
+
+.house-icon:hover {
+  color: rgb(249, 171, 24);
+}
+
+.house-icon:hover svg {
+  color: rgb(249, 171, 24);
+}
+
+.information-wrapper{
+  background-color: rgba(226, 153, 6, 0.707);
+  width: 80%;
+  padding: 5rem 0 auto 0;
+  margin-top: 10rem;
+  border-radius: 10px;
+}
+
+.information-wrapper h4{
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 119, 0, 0.587);
+  padding: 1rem;
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .ecorise-text{
+    margin-top: 60rem;
+  }
+
+  .ecorise-text h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .ecorise-text h3 {
+    font-size: 1rem;
+  }
+
+  .house-icon svg {
+    font-size: 5rem;
+  }
+}

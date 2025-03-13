@@ -33,15 +33,6 @@ export default function NavBar(){
                     </nav>
                 </div>
             </header>
-            <section>
-                <div className='navBar-container'>
-                    <div className='responsive-navBar-content'>
-                        <h2>Eco<span className='house-icon'>{<TfiHome />}</span>Rise</h2>
-                        <h3>CONSTRUCTION</h3>
-                    </div>
-
-                </div>
-            </section>
         </>
     )
 }
