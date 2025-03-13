@@ -9,6 +9,7 @@ body {
   height: auto;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body::before {
@@ -27,6 +28,7 @@ a {
   position: relative;
   height: 100vh; /* Use vh for viewport height */
   overflow: hidden;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.069);
 }
 
@@ -44,18 +46,17 @@ a {
 .main-content {
   position: relative;
   width: 100%;
-  height: 100%; /* Fill the parent */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
-  padding-top: 20rem;
+  overflow-y: auto; /* Ensure scrolling is enabled */
+  padding-top: 0
 }
 
 .ecorise-text {
   text-align: center;
-  margin: 120rem 0 0rem 0;
+  margin: 5rem 0 0rem 0;
 }
 
 .ecorise-text h2 {
@@ -99,6 +100,9 @@ a {
   padding: 5rem 0 auto 0;
   margin-top: 10rem;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .information-wrapper h4{
@@ -112,9 +116,22 @@ a {
   font-weight: 600;
 }
 
+.what-we-do-wrapper{
+    width: 80%;
+    text-align: center;
+    margin-top: 5rem;
+    border: 1px solod red;
+}
+
+.what-we-do-wrapper h1 {
+    color: white;
+    margin: 2rem 0;
+    text-shadow: 1px 1px 2px black;
+}
+
 @media (max-width: 768px) {
   .ecorise-text{
-    margin-top: 60rem;
+    margin-top: 10rem;
   }
 
   .ecorise-text h2 {
@@ -129,4 +146,12 @@ a {
   .house-icon svg {
     font-size: 5rem;
   }
+  .information-wrapper h4{
+    font-size: 1.5rem;
+  }
+
+  .what-we-do-wrapper h1{
+        font-size: 1.5rem;
+        margin: 1.5rem 0;
+    }
 }
