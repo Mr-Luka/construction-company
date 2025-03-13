@@ -1,0 +1,82 @@
+.remodeling-process {
+    color: rgb(4, 1, 1);
+    width: 90%;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(225, 225, 223);
+    border-radius: 10% 30% 50% 70%;
+    text-align: center;
+}
+.remodeling-title{
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.remodeling-text{
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 85%;
+    margin-right: 3rem;
+}
+
+.remodeling-step{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.remodeling-step p:first-of-type {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgb(234, 32, 32);
+}
+
+.remodeling-step p:nth-child(3){
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+
+.process-icon {
+  display: inline-block;
+  transition: color 1s;
+  color: rgb(1, 147, 28);
+}
+.process-icon svg {
+  font-size: 5rem;
+}
+
+
+@media (max-width: 768px) {
+    .remodeling-process{
+        padding-bottom: 3rem;
+    }
+
+    .remodeling-title{
+        font-size: 1.5rem;
+        margin-right: 2rem;
+    }
+
+    .remodeling-text{
+        font-size: 1rem;
+        margin: 0 1.5rem 0 0;
+        width: 90%;
+    }
+
+    .remodeling-step p:nth-child(3){
+        font-size: 1.2rem;
+    }
+
+    .remodeling-step{
+        margin-right: 1rem;
+    }
+
+    .process-icon svg{
+        font-size: 4rem;
+    }
+
+
+    
+}
