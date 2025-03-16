@@ -8,6 +8,7 @@ import kitchen from './assets/imgs/kitchen1.jpeg';
 import bathroom from './assets/imgs/bathroom.jpg';
 import paint from './assets/imgs/paint.jpg';
 
+
 // components:
 import NavBar from './components/NavBar/NavBar.jsx'
 import About from './components/About/About.jsx';

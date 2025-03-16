@@ -18,7 +18,7 @@ export default function NavBar(){
                 <div className='navBar-container'>
                     <nav>
                         <div className='logo'>
-                            <h2>{<TfiHome size="2rem"/>}</h2>
+                            <h2><TfiHome size="2rem"/></h2>
                         </div>
                         <ul className={isOpen ? 'nav-link active' : 'nav-link'}>
                             <li><a href='#' className='active'>Home</a></li>
