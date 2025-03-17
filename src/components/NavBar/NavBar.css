@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 header {
+  
   background: rgba(255, 255, 255, 0.09);
   box-shadow: 0 0 5px black;
   position: relative; 
@@ -9,7 +10,7 @@ header {
 }
 
 .navBar-container {
-  max-width: 1440px;
+  max-width: 768px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -21,14 +22,17 @@ header {
   align-items: center;
 }
 
-.navBar-container nav .logo {
+
+.navBar-container h2 {
   color: white;
-  font-size: 0.7rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
 .navBar-container .nav-link {
+  text-align: center;
   display: flex;
+  align-items: center;
   padding: 0.3rem 0;
 }
 
@@ -39,7 +43,7 @@ header {
 
 .navBar-container ul li a {
   color: white;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   padding: 0.5rem 0.7rem;
   display: block;
   border-radius: 10px;
@@ -48,7 +52,8 @@ header {
 .navBar-container ul li a:hover,
 .navBar-container ul li a.active {
   background-color: rgba(249, 249, 249, 0.093);
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 
@@ -60,15 +65,9 @@ header {
 
 
 
-@media (max-width: 768px) {
-  .responsive-navBar-content h2 {
-    font-size: 4rem;
-    text-align: center;
-  }
+/* @media (max-width: 1440px) {
+  
 
-  .responsive-navBar-content h3 {
-    font-size: 1rem;
-  }
 
   .house-icon svg {
     font-size: 4rem;
@@ -100,4 +99,4 @@ header {
   .nav-link.active {
 		top: 100%;
 	}
-}
+} */

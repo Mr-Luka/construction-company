@@ -45,7 +45,7 @@
     box-shadow: 5px 5px 15px black;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
    .about-me{
     margin-left: 1.3rem;
     flex-direction: column;
@@ -58,4 +58,4 @@
    .about p{
     font-size: 1rem;
    }
-}
+} */

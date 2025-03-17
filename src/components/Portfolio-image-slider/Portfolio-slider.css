@@ -44,7 +44,7 @@
     color: rgba(255, 255, 255, 0.571);
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .slider-wrapper{
         width: 30rem;
         max-width: 25rem;   
@@ -54,4 +54,4 @@
         height: 50vh;
     }
 
-}
+} */
