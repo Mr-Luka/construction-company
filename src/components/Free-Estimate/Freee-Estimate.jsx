@@ -2,30 +2,59 @@ import './Free-Estimate.css';
 import { useState } from 'react';
 
 export default function FreeEstimate() {
-    const [submitted, setSubmitted] = useState(false);
+    const [ submitted, setSubmitted ] = useState(false);
     const [ formData, setFormData ] = useState({
         name: '',
         phone: '',
         email: '',
         zipCode: '',
         message: ''
+    });
+    const [ errors, setErrors] = useState({
+        name: false,
+        phone: false,
+        email: false,
+        zipCode: false,
     })
 
-    function handleSubmitted(){
-        setSubmitted(true);
-        console.log(formData)
+
+    function handleSubmit(e) {
+        e.preventDefault(); // Prevents the default form submission behavior (page reload)
+        setSubmitted(true); // Sets the submitted state to true, indicating the form has been submitted
+        const newErrors = validateForm(); // Calls validateForm to get the current errors
+        setErrors(newErrors); // Updates the errors state with the new errors from validateForm
+        console.log(newErrors);
+        console.log(errors)
+        if (Object.values(newErrors).some(error => error)) { // Checks if there are any errors
+            return; // If there are errors, the function exits early, preventing form submission
+        }
+        console.log(formData); // If no errors, logs the form data to the console
     }
 
     function handleChange(e){
         const {name, value} = e.target;
-        setFormData(prevData=>{
+        setFormData(prevData=> {
             return {
                 ...prevData,
                 [name]: value
             }
         })
-    
+        if(submitted){
+            setErrors(newError=> ({...newError, [name]: false}));
+            setSubmitted(false);
+        }
     }
+
+    function validateForm(){
+        const newErrors ={
+            name: !formData.name,
+            phone: !/^\d{10}$/.test(formData.phone),
+            email: !/\S+@\S+\.\S+/.test(formData.email),
+            zipCode:!/^\d{5}$/.test(formData.zipCode)
+        }
+        return newErrors;
+    }
+  
 
     return (
         <div className='free-estimate-wrapper'>
@@ -41,7 +70,7 @@ export default function FreeEstimate() {
                     name='name'
                     onChange={handleChange}
                     value={formData.name}
-
+                    className={submitted && errors.name ? 'invalid-form' : ''}
                 />
                 <input
                     type='tel'
@@ -50,7 +79,7 @@ export default function FreeEstimate() {
                     name='phone'
                     onChange={handleChange}
                     value={formData.phone}
-
+                    className={submitted && errors.phone ? 'invalid-form' : ''}
 
                 />
                 <input
@@ -60,6 +89,7 @@ export default function FreeEstimate() {
                     name='email'
                     onChange={handleChange}
                     value={formData.email}
+                    className={submitted && errors.email ? 'invalid-form' : ''}
 
                 />
                 <input
@@ -69,6 +99,7 @@ export default function FreeEstimate() {
                     name='zipCode'
                     onChange={handleChange}
                     value={formData.zipCode}
+                    className={submitted && errors.zipCode ? 'invalid-form' : ''}
 
                 />
                 <textarea
@@ -82,7 +113,7 @@ export default function FreeEstimate() {
 
                 />
             </div>
-            <button className='submit-estimate-request' onClick={handleSubmitted}>Submit</button>
+            <button className='submit-estimate-request' onClick={handleSubmit} >Submit</button>
         </div>
     );
 }

@@ -32,12 +32,17 @@
     width: 100%;  
 }
 
-.intake-form input{
+.intake-form input,
+.intake-form textarea{
     width: 90%;
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.184);
     margin-bottom: 1.3rem;
+}
+
+.intake-form textarea[name="message"]{
+  padding-bottom: 5rem;
 }
 
 .submit-estimate-request {
@@ -56,10 +61,30 @@
     box-shadow: 5px 5px 10px rgba(255, 255, 0, 0.684);
 }
 
-.invalid-form{
-  border: 1px solid red;
+.intake-form input.invalid-form { /* Increased specificity */
+    border: 1px solid red;
+    color: red;
+    animation: shake 1s ;
 }
 
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
 
 @keyframes flash {
   0% {
