@@ -1,5 +1,6 @@
 import './Free-Estimate.css';
 import { useState } from 'react';
+import SubmitedFormModal from './Submitted-form-modal.jsx';
 
 export default function FreeEstimate() {
     const [submitted, setSubmitted] = useState(false);
@@ -10,34 +11,36 @@ export default function FreeEstimate() {
         zipCode: '',
         message: ''
     })
-    const [ errors, setErrros] = useState({
+    const [ errors, setErrors] = useState({
         name: false,
         phone: false,
         email: false,
         zipCode: false,
     })
 
-    function handleSubmitted(e){
-        e.preventDefault();
-        setSubmitted(true);
-        const validErrors = validateForm();
-        setErrros(validErrors);
-        if(Object.values(validErrors).some(error=> error)){
-            return;
+    function handleSubmit(e) {
+        e.preventDefault(); // Prevents the default form submission behavior (page reload)
+        setSubmitted(true); // Sets the submitted state to true, indicating the form has been submitted
+        const newErrors = validateForm(); // Calls validateForm to get the current errors
+        setErrors(newErrors); // Updates the errors state with the new errors from validateForm
+
+        if (Object.values(newErrors).some(error => error)) { // Checks if there are any errors
+            return; // If there are errors, the function exits early, preventing form submission
         }
-        console.log(formData)
+        console.log(formData); // If no errors, logs the form data to the console
     }
 
-    function handleChange(e){
-        const {name, value} = e.target;
-        setFormData(prevData=>{
+    function handleChange(e) {
+        const { name, value } = e.target; // Extracts the name and value of the changed input
+        setFormData(prevData => { // Updates the form data state
             return {
                 ...prevData,
                 [name]: value
             }
         });
-        if(submitted){
-            setErrros(oldError => ({...oldError, [name]: false}))
+        if (submitted) { // Checks if the form has been submitted
+            setErrors(newError => ({ ...newError, [name]: false })); // Clears the error for the changed input
+            setSubmitted(false); //resets the submitted state, allowing for the errors to be shown again on the next submit.
         }
     }
 
@@ -59,6 +62,7 @@ export default function FreeEstimate() {
             </div>
             <p className='estimate-text'>Elevate your Southern California lifestyle with a home renovation designed exclusively for you. Detail your vision – every design preference, every spatial need – and we'll curate a luxurious, bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.</p>
             <div className='intake-form'>
+            {submitted && <SubmitedFormModal />}
                 <input
                     type='text'
                     required
@@ -110,7 +114,7 @@ export default function FreeEstimate() {
 
                 />
             </div>
-            <button className='submit-estimate-request' onClick={handleSubmitted}>Submit</button>
+            <button className='submit-estimate-request' onClick={handleSubmit}>Submit</button>
         </div>
     );
 }
