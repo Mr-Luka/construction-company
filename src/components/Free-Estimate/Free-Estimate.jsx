@@ -10,9 +10,21 @@ export default function FreeEstimate() {
         zipCode: '',
         message: ''
     })
+    const [ errors, setErrros] = useState({
+        name: false,
+        phone: false,
+        email: false,
+        zipCode: false,
+    })
 
-    function handleSubmitted(){
+    function handleSubmitted(e){
+        e.preventDefault();
         setSubmitted(true);
+        const validErrors = validateForm();
+        setErrros(validErrors);
+        if(Object.values(validErrors).some(error=> error)){
+            return;
+        }
         console.log(formData)
     }
 
@@ -23,8 +35,21 @@ export default function FreeEstimate() {
                 ...prevData,
                 [name]: value
             }
-        })
-    
+        });
+        if(submitted){
+            setErrros(oldError => ({...oldError, [name]: false}))
+        }
+    }
+
+
+    function validateForm(){
+        const newErrors ={
+            name: !formData.name,
+            phone: !/^\d{10}$/.test(formData.phone),
+            email: !/\S+@\S+\.\S+/.test(formData.email),
+            zipCode:!/^\d{5}$/.test(formData.zipCode)
+        }
+        return newErrors;
     }
 
     return (
@@ -41,6 +66,7 @@ export default function FreeEstimate() {
                     name='name'
                     onChange={handleChange}
                     value={formData.name}
+                    className={submitted && errors.name ? 'invalid-form' : ''}
 
                 />
                 <input
@@ -50,7 +76,7 @@ export default function FreeEstimate() {
                     name='phone'
                     onChange={handleChange}
                     value={formData.phone}
-
+                    className={submitted && errors.phone ? 'invalid-form' : ''}
 
                 />
                 <input
@@ -60,6 +86,7 @@ export default function FreeEstimate() {
                     name='email'
                     onChange={handleChange}
                     value={formData.email}
+                    className={submitted && errors.email ? 'invalid-form' : ''}
 
                 />
                 <input
@@ -69,6 +96,7 @@ export default function FreeEstimate() {
                     name='zipCode'
                     onChange={handleChange}
                     value={formData.zipCode}
+                    className={submitted && errors.zipCode ? 'invalid-form' : ''}
 
                 />
                 <textarea
