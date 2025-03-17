@@ -10,7 +10,7 @@ export default function WhatWeDo({img, service, alt}){
                 <button>More Info</button>
             </div>
             <svg className='services-line' width="100%" height="10">
-                <line x1="0" y1="5" x2="100%" y2="5" stroke="white" stroke-width="2"/>
+                <line x1="0" y1="5" x2="100%" y2="5" stroke="white" strokeWidth="2"/>
             </svg>
         </>
     )

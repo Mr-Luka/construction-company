@@ -1,5 +1,6 @@
 .free-estimate-wrapper{
-    margin-top: 3rem;
+    margin: 3rem 0;
+    padding-bottom: 3rem;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.856);
     display: flex;
@@ -33,6 +34,30 @@
 
 .intake-form input{
     width: 90%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.184);
+    margin-bottom: 1.3rem;
+}
+
+.submit-estimate-request {
+    background-color: rgba(7, 116, 27, 0.809);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.submit-estimate-request:hover {
+    color: yellow;
+    box-shadow: 5px 5px 10px rgba(255, 255, 0, 0.684);
+}
+
+.invalid-form{
+  border: 1px solid red;
 }
 
 
@@ -41,9 +66,9 @@
     color: yellow;
   }
   50% {
-    color: white;
+    color: red;
   }
   100% {
-    color: red;
+    color: yellow;
   }
 }
