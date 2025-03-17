@@ -53,34 +53,47 @@
 }
 
 
-/* @media (max-width: 768px) {
-    .remodeling-process{
-        padding-bottom: 3rem;
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .remodeling-process {
+        width: 90%; /* Adjust width for desktop */
+        padding: 3rem; /* Increase padding */
+        border-radius: 15% 35% 55% 75%; /* Adjust border radius */
     }
 
-    .remodeling-title{
-        font-size: 1.3rem;
-        margin-right: 2.5rem;
+    .remodeling-title {
+        font-size: 2rem; /* Increase title font size */
+        margin: 0rem 0 1rem 0; /* Adjust title margin */
+        width: 80%;
     }
 
-    .remodeling-text{
-        font-size: 1rem;
-        margin: 0 1.5rem 0 0;
-        width: 90%;
+    .remodeling-text {
+        font-size: 1.5rem; /* Increase text font size */
+        width: 100%; /* Increase text width */
+        margin: 1rem 0;
     }
 
-    .remodeling-step p:nth-child(3){
-        font-size: 1.2rem;
+    .remodeling-step {
+        font-size: 1.5rem; /* Increase step font size */
+        margin: 1rem 0 2rem 5rem; /* Adjust step margin */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
     }
 
-    .remodeling-step{
+    .remodeling-step p:first-of-type {
+        font-size: 2rem; /* Increase first p font size */
         margin-right: 1rem;
     }
 
-    .process-icon svg{
-        font-size: 4rem;
+    .remodeling-step p:nth-child(3) {
+        font-size: 2rem; /* Increase third p font size */
+        margin-bottom: 0;
+        margin-left: 1rem;
     }
 
-
-    
-} */
+    .process-icon svg {
+        font-size: 3rem; /* Increase icon size */
+    }
+}

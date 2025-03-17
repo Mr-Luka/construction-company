@@ -44,14 +44,23 @@
     color: rgba(255, 255, 255, 0.571);
 }
 
-/* @media (max-width: 768px) {
-    .slider-wrapper{
-        width: 30rem;
-        max-width: 25rem;   
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .slider-wrapper {
+        width: 80%; /* Adjust width for desktop */
     }
 
-    .slider-styles{
-        height: 50vh;
+    .slider-styles {
+        height: 80vh; /* Increase height for desktop */
     }
 
-} */
+
+    .dots-container {
+        margin-top: 1rem; /* Increase dot container margin */
+    }
+
+    .dot {
+        font-size: 20px; /* Increase dot size */
+        margin: 0 5px; /* Adjust dot margin */
+    }
+}
