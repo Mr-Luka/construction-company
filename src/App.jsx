@@ -15,6 +15,7 @@ import About from './components/About/About.jsx';
 import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-slider.jsx';
 import WhatWeDo from './components/WhatWeDo/WhatWeDo.jsx';
 import RemodelingProcess from './components/RemodelingProcess/RemodelingProcess.jsx';
+import FreeEstimate from './components/Free-Estimate/Free-Estimate.jsx';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <h4>Our Projects</h4>
             <ImageSlider />
             <About />
+            <FreeEstimate />
           </div>
         </main>
       </div>
