@@ -131,29 +131,39 @@ a {
     text-shadow: 1px 1px 2px black;
 }
 
-/* @media (max-width: 768px) {
-  .ecorise-text{
-    margin-top: 10rem;
-  }
 
-  .ecorise-text h2 {
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  .ecorise-text h3 {
-    font-size: 1rem;
-  }
-
-  .house-icon svg {
-    font-size: 5rem;
-  }
-  .information-wrapper h4{
-    font-size: 1.5rem;
-  }
-
-  .what-we-do-wrapper h1{
-        font-size: 1.5rem;
-        margin: 1.5rem 0;
+/* Desktop styles */
+@media (min-width: 769px) {
+    body {
+        max-width: none; /* Remove max-width on body */
     }
-} */
+
+    .neighborhood-text {
+        margin: 20rem 0 0rem 0; /* Increase margin on desktop */
+    }
+
+    .neighborhood-text h2 {
+        font-size: 5rem; /* Increase heading size */
+    }
+
+    .neighborhood-text h3 {
+        font-size: 2rem; /* Increase subheading size */
+    }
+
+    .house-icon svg {
+        font-size: 7rem; /* Increase icon size */
+    }
+
+    .information-wrapper {
+        width: 60%; /* Adjust wrapper width */
+        margin-top: 15rem; /* Adjust wrapper margin */
+    }
+
+    .information-wrapper h4 {
+        font-size: 4rem; /* Increase heading size */
+    }
+
+    .what-we-do-wrapper {
+        width: 60%; /* Adjust wrapper width */
+    }
+}

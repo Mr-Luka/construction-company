@@ -16,6 +16,21 @@ header {
   padding: 0 1rem;
 }
 
+.navBar-container .nav-link {
+    flex-direction: column;
+	  justify-content: space-evenly;
+	  align-items: center;
+	  background-color: rgba(255, 255, 255, 0.399);
+	  border-bottom-left-radius: 80px 80px;
+	  box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
+	  position: absolute;
+	  width: 100px;
+	  height: 30vh;
+	  top: 0px;
+	  right: 0;
+	  z-index: 10;
+  }
+
 .navBar-container nav {
   display: flex;
   justify-content: space-between;
@@ -42,7 +57,8 @@ header {
 }
 
 .navBar-container ul li a {
-  color: white;
+  color: rgb(4, 1, 1);
+  font-weight: 600;
   font-size: 0.7rem;
   padding: 0.5rem 0.7rem;
   display: block;
@@ -60,43 +76,40 @@ header {
 .sideBar-icon {
   font-size: 1.5rem;
   cursor: pointer;
-  display: none;
+
 }
 
 
 
-/* @media (max-width: 1440px) {
-  
 
 
-  .house-icon svg {
-    font-size: 4rem;
+/* Styles for screens 1440px and below */
+@media (max-width: 1440px) {
+    .navBar-container {
+        max-width: 1440px; /* Expand container */
+    }
+
+    .navBar-container .nav-link {
+        position: static; /* Remove absolute positioning */
+        flex-direction: row; /* Horizontal navigation */
+        background-color: transparent; /* Remove background */
+        box-shadow: none; /* Remove shadow */
+        border-radius: 0; /* Remove border radius */
+        width: auto; /* Allow natural width */
+        height: auto; /* Allow natural height */
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .navBar-container ul li a {
+        color: white; /* Change link color */
+        font-size: 1rem; /* Increase font size */
+        margin: 0 10px;
+    }
+
+    .sideBar-icon {
+        display: none; /* Hide hamburger on desktop */
+    }
 }
 
-  .sideBar-icon {
-    display: block;
-  }
 
-  .navBar-container .nav-link {
-    flex-direction: column;
-	  justify-content: space-evenly;
-	  align-items: center;
-	  background-color: rgba(255, 255, 255, 0.399);
-	  border-bottom-left-radius: 80px 80px;
-	  box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
-	  position: absolute;
-	  width: 200px;
-	  height: 30vh;
-	  top: -800px;
-	  right: 0;
-	  z-index: 10;
-  }
-
-  .navBar-container ul li a{
-    color: rgb(1, 132, 19);
-  }
-
-  .nav-link.active {
-		top: 100%;
-	}
-} */
