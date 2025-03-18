@@ -1,7 +1,11 @@
 .footer{
     width: 100%;
     background-color: rgba(255, 255, 255, 0.856);
-    padding-top: 5rem
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .neighborhood-text-footer {
@@ -42,4 +46,20 @@
 
 .house-icon-footer:hover svg {
   color: rgb(249, 171, 24);
+}
+
+
+.socials-f {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 2rem 0;
+}
+.socials-f img {
+    width: 2rem;
+}
+
+.socials-f img:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s;
 }
