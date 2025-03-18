@@ -135,35 +135,40 @@ a {
 /* Desktop styles */
 @media (min-width: 769px) {
     body {
-        max-width: none; /* Remove max-width on body */
+        max-width: none; 
+    }
+
+    .main-content{
+      width: 100%;
+      margin-top: -5rem;
     }
 
     .neighborhood-text {
-        margin: 20rem 0 0rem 0; /* Increase margin on desktop */
+        margin: 20rem 0 0rem 0; 
     }
 
     .neighborhood-text h2 {
-        font-size: 5rem; /* Increase heading size */
+        font-size: 5rem; 
     }
 
     .neighborhood-text h3 {
-        font-size: 2rem; /* Increase subheading size */
+        font-size: 2rem; 
     }
 
     .house-icon svg {
-        font-size: 7rem; /* Increase icon size */
+        font-size: 7rem; 
     }
 
     .information-wrapper {
-        width: 60%; /* Adjust wrapper width */
-        margin-top: 15rem; /* Adjust wrapper margin */
+        width: 80%; 
+        margin-top: 15rem; 
     }
 
     .information-wrapper h4 {
-        font-size: 4rem; /* Increase heading size */
+        font-size: 4rem; 
     }
 
     .what-we-do-wrapper {
-        width: 60%; /* Adjust wrapper width */
+        width: 60%; 
     }
 }
