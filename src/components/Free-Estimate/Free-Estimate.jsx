@@ -1,9 +1,12 @@
 import './Free-Estimate.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import SubmittedFormModal from './Submitted-form-modal.jsx';
 
 export default function FreeEstimate() {
-    const dialog = useRef()
+    const dialog = useRef();
+    const timer = useRef(null);
+
+    const [submissionSuccess, setSubmissionSuccess] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [ formData, setFormData ] = useState({
         name: '',
@@ -18,6 +21,7 @@ export default function FreeEstimate() {
         email: false,
         zipCode: false,
     })
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault(); // Prevents the default form submission behavior (page reload)
@@ -28,7 +32,14 @@ export default function FreeEstimate() {
         if (Object.values(newErrors).some(error => error)) { // Checks if there are any errors
             return; // If there are errors, the function exits early, preventing form submission
         }
-        dialog.current.open() // open the modal
+        setSubmissionSuccess(true);
+
+        setTimeout(() => { // Delay to ensure state update
+            dialog.current.open();
+            closeModalTimer();
+            setIsSubmitting(false); // Reset isSubmitting after modal opens
+        }, 0);
+
 
         console.log(formData); // If no errors, logs the form data to the console
     }
@@ -47,6 +58,18 @@ export default function FreeEstimate() {
         }
     }
 
+    function closeModalTimer() {
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+        timer.current = setTimeout(() => {
+            if (dialog.current) {
+                dialog.current.close();
+                setSubmissionSuccess(false);
+            }
+        }, 4000);
+    }
+
 
     function validateForm(){
         const newErrors ={
@@ -61,7 +84,7 @@ export default function FreeEstimate() {
   return (
     <>
         <div className='free-estimate-wrapper'>
-            {submitted && <SubmittedFormModal ref={dialog} name={formData.name}/>}
+            {submissionSuccess && <SubmittedFormModal ref={dialog} name={formData.name} timer={timer}/>}
             <div className='free-estimate-title'>
                 <h1>Get a Free Estimate</h1>
             </div>
