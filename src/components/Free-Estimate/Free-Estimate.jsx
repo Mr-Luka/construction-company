@@ -67,7 +67,7 @@ export default function FreeEstimate() {
                 dialog.current.close();
                 setSubmissionSuccess(false);
             }
-        }, 4000);
+        }, 5000);
     }
 
 

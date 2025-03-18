@@ -16,6 +16,9 @@ import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-sli
 import WhatWeDo from './components/WhatWeDo/WhatWeDo.jsx';
 import RemodelingProcess from './components/RemodelingProcess/RemodelingProcess.jsx';
 import FreeEstimate from './components/Free-Estimate/Free-Estimate.jsx';
+import Footer from './components/Footer/Footer.jsx';
+
+
 
 function App() {
   return (
@@ -25,7 +28,6 @@ function App() {
         </video>
         <NavBar />
         <main className='main-content'>
-        <FreeEstimate />
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>
               <h2>Neighborhood</h2>
@@ -44,7 +46,8 @@ function App() {
             <h4>Our Projects</h4>
             <ImageSlider />
             <About />
-            {/* <FreeEstimate /> */}
+            <FreeEstimate />
+            <Footer logo={<TfiHome/>}/>
           </div>
         </main>
       </div>

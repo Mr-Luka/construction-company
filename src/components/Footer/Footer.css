@@ -1,0 +1,45 @@
+.footer{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.856);
+    padding-top: 5rem
+}
+
+.neighborhood-text-footer {
+  text-align: center;
+  margin: 1rem 0 5rem 0;
+}
+
+.neighborhood-text-footer h2 {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.6rem;
+  font-weight: 500;
+}
+
+.neighborhood-text-footer h3 {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.6rem;
+  font-weight: 400;
+}
+
+.house-icon-footer {
+  display: inline-block;
+  transition: color 1s;
+  color: green;
+}
+.house-icon-footer svg {
+  font-size: 3rem;
+}
+
+.house-icon-footer:hover {
+  color: rgb(249, 171, 24);
+}
+
+.house-icon-footer:hover svg {
+  color: rgb(249, 171, 24);
+}
