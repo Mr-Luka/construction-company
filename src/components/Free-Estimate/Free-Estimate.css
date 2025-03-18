@@ -67,14 +67,28 @@
     animation: shake 1s ;
 }
 
-.submitted-form-modal-wrapper{
+.submitted-form-modal-wrapper {
   width: 80%;
   background-color: rgba(255, 255, 255, 0.856);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 5px 10px 10px rgb(16, 157, 37);
-  margin-bottom: 1rem;
+  text-align: center;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
+
+.submitted-form-modal-wrapper[open] {
+  animation: slide-in-from-top 0.35s ease-out;
+}
+
+.submitted-form-modal-wrapper::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .submitted-form-modal-wrapper h1{
   margin-bottom: 1rem;
 }
@@ -99,6 +113,8 @@
   justify-content: end;
   margin-top: -0.5rem;
 }
+
+
 
 
 @keyframes shake {

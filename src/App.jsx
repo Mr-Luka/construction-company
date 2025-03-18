@@ -25,6 +25,7 @@ function App() {
         </video>
         <NavBar />
         <main className='main-content'>
+        <FreeEstimate />
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>
               <h2>Neighborhood</h2>
@@ -43,7 +44,7 @@ function App() {
             <h4>Our Projects</h4>
             <ImageSlider />
             <About />
-            <FreeEstimate />
+            {/* <FreeEstimate /> */}
           </div>
         </main>
       </div>

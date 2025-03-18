@@ -1,8 +1,9 @@
 import './Free-Estimate.css';
-import { useState } from 'react';
-import SubmitedFormModal from './Submitted-form-modal.jsx';
+import { useState, useRef } from 'react';
+import SubmittedFormModal from './Submitted-form-modal.jsx';
 
 export default function FreeEstimate() {
+    const dialog = useRef()
     const [submitted, setSubmitted] = useState(false);
     const [ formData, setFormData ] = useState({
         name: '',
@@ -27,6 +28,8 @@ export default function FreeEstimate() {
         if (Object.values(newErrors).some(error => error)) { // Checks if there are any errors
             return; // If there are errors, the function exits early, preventing form submission
         }
+        dialog.current.open() // open the modal
+
         console.log(formData); // If no errors, logs the form data to the console
     }
 
@@ -55,14 +58,15 @@ export default function FreeEstimate() {
         return newErrors;
     }
 
-    return (
+  return (
+    <>
         <div className='free-estimate-wrapper'>
+            {submitted && <SubmittedFormModal ref={dialog} name={formData.name}/>}
             <div className='free-estimate-title'>
                 <h1>Get a Free Estimate</h1>
             </div>
             <p className='estimate-text'>Elevate your Southern California lifestyle with a home renovation designed exclusively for you. Detail your vision – every design preference, every spatial need – and we'll curate a luxurious, bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.</p>
             <div className='intake-form'>
-            {submitted && <SubmitedFormModal />}
                 <input
                     type='text'
                     required
@@ -116,5 +120,6 @@ export default function FreeEstimate() {
             </div>
             <button className='submit-estimate-request' onClick={handleSubmit}>Submit</button>
         </div>
+    </>
     );
 }
