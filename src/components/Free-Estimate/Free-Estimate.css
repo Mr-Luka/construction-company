@@ -72,7 +72,8 @@
   background-color: rgba(255, 255, 255, 0.856);
   padding: 1.5rem;
   border-radius: 15px;
-  box-shadow: 5px 10px 10px rgb(16, 157, 37);
+  border: 4px solid white;
+  box-shadow: 5px 10px 10px rgb(255, 255, 255);
   text-align: center;
   position: fixed; 
   top: 50%;
@@ -106,6 +107,10 @@
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.submitted-form-modal-wrapper button:hover {
+  color: rgba(255, 0, 0, 0.53);
 }
 
 .submitted-form-modal-wrapper form {
@@ -158,5 +163,10 @@
   .estimate-text{
     width: 90%;
     font-size: 1.2rem;
+  }
+
+  .submitted-form-modal-wrapper{
+    width: 50%;
+    padding-bottom: 4rem;
   }
 }
