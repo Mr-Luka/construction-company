@@ -87,16 +87,12 @@ a {
   font-size: 5rem;
 }
 
-.house-icon:hover {
-  color: rgb(249, 171, 24);
-}
-
 .house-icon:hover svg {
   color: rgb(249, 171, 24);
 }
 
 .information-wrapper{
-  background-color: rgba(94, 150, 94, 0.707);
+  background-color: rgba(225, 224, 223, 0.667);
   width: 95%;
   padding: 5rem 0 auto 0;
   margin-top: 20rem;
@@ -119,16 +115,32 @@ a {
 }
 
 .what-we-do-wrapper{
-    width: 80%;
+    width: 90%;
     text-align: center;
     margin-top: 5rem;
-    border: 1px solod red;
 }
 
 .what-we-do-wrapper h1 {
     color: white;
-    margin: 2rem 0;
+    margin: 2rem 0 2rem 0;
     text-shadow: 1px 1px 2px black;
+}
+
+.call-us-now {
+  width: 90%;
+  margin-top: 4rem;
+  border: 5px solid rgb(250, 250, 250);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+.call-us-now h5{
+  text-align: center;
+  font-size: 1.4rem;
+}
+.call-us-now span {
+  font-size: 1.6rem;
+  color: red;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.465);
 }
 
 
@@ -160,7 +172,7 @@ a {
     }
 
     .information-wrapper {
-        width: 80%; 
+        width: 90%; 
         margin-top: 15rem; 
     }
 
@@ -169,6 +181,13 @@ a {
     }
 
     .what-we-do-wrapper {
-        width: 60%; 
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+    }
+    .what-we-do-wrapper h1{
+      font-size: 3rem;
     }
 }

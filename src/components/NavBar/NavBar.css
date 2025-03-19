@@ -3,6 +3,7 @@
 header {
   background: rgba(255, 255, 255, 0.09);
   box-shadow: 0 0 5px black;
+  padding: 0.5rem 0;
   position: relative;
   z-index: 2;
   font-family: "Montserrat", sans-serif;

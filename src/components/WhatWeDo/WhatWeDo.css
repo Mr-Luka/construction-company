@@ -1,6 +1,11 @@
-
+.what-we-do-wrapper-component{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .what-we-do-section img{
-    width: 90%;
+    width: 100%;
     background-size: cover;
     background-position: center;
     border: 2px solid white;
@@ -41,25 +46,47 @@
 }
 
 @media (min-width: 769px) {
+    .hide-on-desktop{
+        display: none;
+    }
+    .what-we-do-services { 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .what-we-do-wrapper-component {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+    .what-we-do-section {
+        background-color: rgba(94, 150, 94, 0.802);
+        border-radius: 35px;
+        border: 1px solid rgba(255, 255, 255, 0.573);
+        box-shadow: 5px 5px 2px rgba(255, 254, 251, 0.489);
+    }
+
     .what-we-do-section img {
-        width: 90%; /* Increase image width */
-        border-radius: 60% 25% / 15% 45%; /* Adjust border radius */
+        width: 80%; 
+        margin-top: 1rem;
+        border-radius: 60% 25% / 15% 45%; 
     }
 
     .service {
-        font-size: 2rem; /* Increase service font size */
-        margin-top: 1.5rem; /* Adjust service margin */
+        font-size: 2rem;
+        margin-top: 1.5rem; 
     }
 
     .what-we-do-section button {
-        font-size: 1.2rem; /* Increase button font size */
-        padding: 1.2rem 2.5rem; /* Increase button padding */
-        border-radius: 30px; /* Adjust button border radius */
+        font-size: 1.2rem; 
+        padding: 1.2rem 2.5rem; 
+        border-radius: 30px; 
     }
 
     .services-line {
-        width: 60%; /* Adjust line width */
-        margin-bottom: 3rem; /* Increase line margin */
+        width: 60%; 
+        margin-bottom: 3rem; 
     }
 }
 

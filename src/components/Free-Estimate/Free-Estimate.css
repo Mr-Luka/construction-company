@@ -146,3 +146,17 @@
     color: yellow;
   }
 }
+
+/* Desktop styles */
+@media (min-width: 769px){
+  .free-estimate-wrapper{
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px black;
+  }
+
+  .estimate-text{
+    width: 90%;
+    font-size: 1.2rem;
+  }
+}

@@ -34,18 +34,23 @@ function App() {
               <h3>REMODELING</h3>
           </div>
           <div className='information-wrapper'>
-            <RemodelingProcess />
+            <About />
             <div className='what-we-do-wrapper'>
               <h1>Our Main Services</h1>
-              <WhatWeDo img={landscape} alt='landscaping' service='Landscaping'/>
-              <WhatWeDo img={hardscaping} alt='hardscaping' service='Hardscaping'/>
-              <WhatWeDo img={kitchen} alt='kitchen' service='Kitchen'/>
-              <WhatWeDo img={bathroom} alt='Bathroom' service='Bathroom'/>
-              <WhatWeDo img={paint} alt='paint' service='Interior / Exterior Paint'/>
+              <div className='what-we-do-services'>
+                <WhatWeDo img={landscape} alt='landscaping' service='Landscaping'/>
+                <WhatWeDo img={hardscaping} alt='hardscaping' service='Hardscaping'/>
+                <WhatWeDo img={kitchen} alt='kitchen' service='Kitchen'/>
+                <WhatWeDo img={bathroom} alt='Bathroom' service='Bathroom'/>
+                <WhatWeDo img={paint} alt='paint' service='Interior / Exterior Paint'/>
+              </div>
             </div>
             <h4>Our Projects</h4>
             <ImageSlider />
-            <About />
+            <div className='call-us-now'>
+              <h5>Call us now: <span>800-555-5555</span> For a <span>FREE ESTIMATE</span></h5>
+            </div>
+            <RemodelingProcess />
             <FreeEstimate />
             <Footer logo={<TfiHome/>}/>
           </div>

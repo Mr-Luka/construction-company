@@ -21,7 +21,7 @@ export default function FreeEstimate() {
         email: false,
         zipCode: false,
     })
-    const [isSubmitting, setIsSubmitting] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault(); // Prevents the default form submission behavior (page reload)
@@ -37,7 +37,7 @@ export default function FreeEstimate() {
         setTimeout(() => { // Delay to ensure state update
             dialog.current.open();
             closeModalTimer();
-            setIsSubmitting(false); // Reset isSubmitting after modal opens
+
         }, 0);
 
 
@@ -67,7 +67,7 @@ export default function FreeEstimate() {
                 dialog.current.close();
                 setSubmissionSuccess(false);
             }
-        }, 5000);
+        }, 6000);
     }
 
 
