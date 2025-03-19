@@ -1,5 +1,6 @@
 import video from './assets/imgs/video-const.mp4';
 import { TfiHome } from "react-icons/tfi";
+import { FaPhoneAlt } from "react-icons/fa";
 
 // images:
 import landscape from './assets/imgs/landscaping.jpeg';
@@ -55,6 +56,10 @@ function App() {
             <Footer logo={<TfiHome/>}/>
           </div>
         </main>
+        <div className='absolute-phone-number'>
+          <span className='call-us-absolute'><FaPhoneAlt /></span>
+          <h6>Call: 800-555-5555</h6>
+        </div>
       </div>
     </>
   );

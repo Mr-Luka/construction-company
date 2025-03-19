@@ -95,7 +95,7 @@ a {
   background-color: rgba(225, 224, 223, 0.667);
   width: 95%;
   padding: 5rem 0 auto 0;
-  margin-top: 20rem;
+  margin: 20rem 0 5rem 0;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -141,6 +141,30 @@ a {
   font-size: 1.6rem;
   color: red;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.465);
+}
+
+.absolute-phone-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: rgb(255, 140, 0);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.call-us-absolute svg {
+  font-size: 1.8rem;
+  margin-right: 1rem
+}
+
+.absolute-phone-number h6 {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 
@@ -190,4 +214,17 @@ a {
     .what-we-do-wrapper h1{
       font-size: 3rem;
     }
+
+  .call-us-now {
+    margin-top: 5rem;
+    border: 5px solid rgb(250, 250, 250);
+    padding: 3rem 5rem;
+    border-radius: 10px;
+}
+.call-us-now h5{
+  font-size: 2.5rem;
+}
+.call-us-now span {
+  font-size: 3rem;
+}
 }
