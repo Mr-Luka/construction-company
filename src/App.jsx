@@ -13,7 +13,8 @@ import paint from './assets/imgs/paint.jpg';
 
 
 // components:
-import NavBar from './components/NavBar/NavBar.jsx'
+import NavBar from './components/NavBar/NavBar.jsx';
+import LicenseContact from './components/License-contact/LicenseContact.jsx';
 import About from './components/About/About.jsx';
 import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-slider.jsx';
 import WhatWeDo from './components/WhatWeDo/WhatWeDo.jsx';
@@ -40,6 +41,7 @@ function App() {
           servicesRef={servicesRef} 
           aboutRef={aboutRef}
         /> {/* passing contact and service ref*/ }
+        <LicenseContact />
         <main className='main-content'>
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>

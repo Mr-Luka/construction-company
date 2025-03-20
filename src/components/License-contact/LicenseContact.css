@@ -1,0 +1,52 @@
+.contact-bar {
+    background: linear-gradient(to right, rgba(194, 93, 25, 0), #ffffff30);
+    color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.license{
+    font-weight: 600;
+}
+.hiring,
+.right-section {
+    display: none; /* Hide sections on mobile */
+}
+
+.left-section .license {
+    display: block; /* Show license on mobile */
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .contact-bar {
+        background: linear-gradient(to right, rgba(34, 34, 34, 0.652), #4caf4f9a);
+        margin-top: 3.9rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .hiring,
+    .left-section,
+    .right-section {
+        display: flex; /* Show sections on desktop */
+
+    }
+
+    .left-section .license {
+        display: inline-block; /* Show license on desktop */
+        margin-right: 20px;
+    }
+
+    .right-section span {
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+}
