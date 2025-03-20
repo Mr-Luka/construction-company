@@ -1,3 +1,5 @@
+import React, {useRef, useEffect, useState} from 'react';
+
 import video from './assets/imgs/video-const.mp4';
 import { TfiHome } from "react-icons/tfi";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -22,12 +24,23 @@ import Footer from './components/Footer/Footer.jsx';
 
 
 function App() {
+  console.log("App component rendered");
+  const contactRef = useRef(null); // creating the ref for the contact
+  const servicesRef = useRef(null); // creating the ref for the services/ what we do
+  const aboutRef = useRef(null);
+
+  
+
   return (
     <>
      <div className="video-container">
         <video src={video} type="video/mp4" autoPlay loop muted playsInline className="video-background">
         </video>
-        <NavBar />
+        <NavBar 
+          contactRef={contactRef} 
+          servicesRef={servicesRef} 
+          aboutRef={aboutRef}
+        /> {/* passing contact and service ref*/ }
         <main className='main-content'>
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>
@@ -35,8 +48,8 @@ function App() {
               <h3>REMODELING</h3>
           </div>
           <div className='information-wrapper'>
-            <About />
-            <div className='what-we-do-wrapper'>
+            <About aboutRef={aboutRef}/>
+            <div className='what-we-do-wrapper' ref={servicesRef}>
               <h1>Our Main Services</h1>
               <div className='what-we-do-services'>
                 <WhatWeDo img={landscape} alt='landscaping' service='Landscaping'/>
@@ -53,7 +66,7 @@ function App() {
             </div>
             <RemodelingProcess />
             <FreeEstimate />
-            <Footer logo={<TfiHome/>}/>
+            <Footer logo={<TfiHome/>} contactRef={contactRef}/> {/* attaching contact ref*/ }
           </div>
         </main>
         <div className='absolute-phone-number'>

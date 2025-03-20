@@ -1,4 +1,5 @@
 import './Footer.css';
+import {useRef} from 'react';
 
 // icons
 import { FaClock } from "react-icons/fa";
@@ -13,7 +14,7 @@ import instagram from '../../assets/imgs/icons/instagram.png';
 import x from '../../assets/imgs/icons/twitter.png';
 import tiktok from '../../assets/imgs/icons/tik-tok.png';
 
-export default function Footer ({logo}){
+export default function Footer ({logo, contactRef}){
 
     return (
         <div className="footer">
@@ -23,8 +24,8 @@ export default function Footer ({logo}){
                     <h2>Neighborhood</h2>
                     <h3>REMODELING</h3>
                 </div>
-                <div className='contact-footer'>
-                    <h5>Contact</h5>
+                <div className='contact-footer' ref={contactRef}>
+                    <h5>Contact Us</h5>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><FaClock /></span>
                         <p>Mon - Fri: 8am - 6pm</p>
