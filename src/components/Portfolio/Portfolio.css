@@ -1,0 +1,82 @@
+.portfolio-wrapper {
+    width: 100%;
+    background-color: rgba(225, 224, 223, 0.667);
+    height: auto;
+    text-align: center;
+    padding-top: 5rem;
+}
+
+.our-projects {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.our-work {
+    margin: 3rem 0;
+    background-color: rgba(225, 224, 223, 0.667);
+    padding-bottom: 2.5rem;
+}
+
+.our-work button {
+    background-color: rgb(0, 102, 255);
+    color: white;
+    padding: 1rem 1rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+}
+.our-work button:hover {
+    cursor: pointer;
+    background-color: rgb(0, 153, 255);
+}
+
+.project h2 {
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+    background-color: rgba(225, 224, 223, 0.667);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(17, 47, 167, 0.509);
+}
+
+.project img {
+    margin: 2rem 0 1rem 0;
+    width: 80%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid white;
+    border-radius: 50% 20% / 10% 40%;
+    box-shadow: 5px 5px 15px rgb(251, 251, 251);
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg); 
+    }
+    50% {
+        transform: rotate(5deg); 
+    }
+    100% {
+        transform: rotate(0deg); 
+    }
+}
+
+@media (min-width: 769px){
+    .our-work {
+        width: 30%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 5px 5px 15px rgb(118, 118, 118);
+        transition: transform 0.3s
+    }
+
+    .our-work:hover {
+        animation: tilt 0.3s ease forwards;
+    }
+}
+
+
+
