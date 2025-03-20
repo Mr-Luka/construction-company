@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { TfiHome } from 'react-icons/tfi';
 import './NavBar.css';
@@ -60,7 +61,7 @@ export default function NavBar({contactRef, servicesRef, aboutRef}) {
                                 <a onClick={handleServicesClick}>Services</a>
                             </li>
                             <li>
-                                <a href="#">Portfolio</a>
+                                <Link to='/portfolio'>Portfolio</Link>
                             </li>
                             <li>
                                 <a onClick={handleContactClick}>Contact Us</a>

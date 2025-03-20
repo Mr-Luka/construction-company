@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Import Router components
 
 import video from './assets/imgs/video-const.mp4';
 import { TfiHome } from "react-icons/tfi";
@@ -14,6 +15,7 @@ import paint from './assets/imgs/paint.jpg';
 
 // components:
 import NavBar from './components/NavBar/NavBar.jsx';
+import Portfolio from './components/Portfolio/Portfolio.jsx';
 import LicenseContact from './components/License-contact/LicenseContact.jsx';
 import About from './components/About/About.jsx';
 import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-slider.jsx';
@@ -28,23 +30,24 @@ function App() {
   const contactRef = useRef(null); // creating the ref for the contact
   const servicesRef = useRef(null); // creating the ref for the services/ what we do
   const aboutRef = useRef(null);
-  const homeRef = useRef(null)
+
 
   
 
   return (
+    <Router>
     <>
-    <div ref={homeRef}></div>
      <div className="video-container">
         <video src={video} type="video/mp4" autoPlay loop muted playsInline className="video-background">
         </video>
         <NavBar 
-          homeRef={homeRef}
           contactRef={contactRef} 
           servicesRef={servicesRef} 
           aboutRef={aboutRef}
         /> {/* passing contact and service ref*/ }
         <LicenseContact  license={4487682} email='neighborhood.remodeling@gmail.com'/>
+        <Routes>
+          <Route path='/' element={<>
         <main className='main-content'>
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>
@@ -77,8 +80,12 @@ function App() {
           <span className='call-us-absolute'><FaPhoneAlt /></span>
           <h6>Call: 800-555-5555</h6>
         </div>
+        </>} />
+        <Route path='/portfolio' element={<Portfolio />} />
+        </Routes>
       </div>
     </>
+  </Router>
   );
 }
 
