@@ -95,35 +95,36 @@ header {
 /* Desktop Styles */
 @media (min-width: 769px) {
   .navBar-container {
-    max-width: 1440px; /* Adjust max-width for desktop */
+    max-width: 1440px; 
   }
 
   .navBar-container .nav-link {
-    position: static; /* Remove absolute positioning */
-    display: flex; /* Show navigation links */
-    flex-direction: row; /* Horizontal navigation */
-    background-color: transparent; /* Remove background */
-    box-shadow: none; /* Remove shadow */
-    border-radius: 0; /* Remove border radius */
-    width: auto; /* Allow natural width */
-    height: auto; /* Allow natural height */
-    justify-content: flex-end; /* Align links to the right */
+    position: static;
+    display: flex; 
+    flex-direction: row; 
+    background-color: transparent;
+    box-shadow: none; 
+    border-radius: 0; 
+    width: auto; 
+    height: auto; 
+    justify-content: flex-end; 
   }
 
   .navBar-container .nav-link li {
-    margin: 0 1rem; /* Adjust list item margins */
+    margin: 0 1rem; 
   }
 
   .navBar-container ul li a {
-    color: white; /* Change link color for desktop */
-    font-size: 1rem; /* Adjust font size for desktop */
+    color: white; 
+    font-size: 1rem; 
+    text-shadow: 1px 1px 2px black;
   }
 
   .sideBar-icon {
-    display: none; /* Hide hamburger icon on desktop */
+    display: none; 
   }
 
   .navBar-container h2 {
-    font-size: 1.2rem; /* Increase logo font size for desktop */
+    font-size: 1.2rem; 
   }
 }

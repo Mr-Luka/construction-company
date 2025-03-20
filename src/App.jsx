@@ -24,7 +24,6 @@ import Footer from './components/Footer/Footer.jsx';
 
 
 function App() {
-  console.log("App component rendered");
   const contactRef = useRef(null); // creating the ref for the contact
   const servicesRef = useRef(null); // creating the ref for the services/ what we do
   const aboutRef = useRef(null);
