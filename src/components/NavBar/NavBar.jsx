@@ -10,6 +10,11 @@ export default function NavBar({contactRef, servicesRef, aboutRef}) {
         setIsOpen(isOpen=> !isOpen);
     }
 
+    function handleHomeClick(){
+        window.location.reload();
+        setIsOpen(false);
+    }
+
     function handleContactClick(){
         if(contactRef.current){
             contactRef.current.scrollIntoView({behavior: 'smooth'}) // scroll to the ref
@@ -31,6 +36,7 @@ export default function NavBar({contactRef, servicesRef, aboutRef}) {
         setIsOpen(false);
     }
 
+
     return (
         <>
             <header >
@@ -43,7 +49,7 @@ export default function NavBar({contactRef, servicesRef, aboutRef}) {
                         </div>
                         <ul className={isOpen ? 'nav-link active' : 'nav-link'}>
                             <li>
-                                <a href="#" className="active">
+                                <a onClick={handleHomeClick} className="active">
                                     Home
                                 </a>
                             </li>

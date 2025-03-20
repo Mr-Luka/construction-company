@@ -28,20 +28,23 @@ function App() {
   const contactRef = useRef(null); // creating the ref for the contact
   const servicesRef = useRef(null); // creating the ref for the services/ what we do
   const aboutRef = useRef(null);
+  const homeRef = useRef(null)
 
   
 
   return (
     <>
+    <div ref={homeRef}></div>
      <div className="video-container">
         <video src={video} type="video/mp4" autoPlay loop muted playsInline className="video-background">
         </video>
         <NavBar 
+          homeRef={homeRef}
           contactRef={contactRef} 
           servicesRef={servicesRef} 
           aboutRef={aboutRef}
         /> {/* passing contact and service ref*/ }
-        <LicenseContact />
+        <LicenseContact  license={4487682} email='neighborhood.remodeling@gmail.com'/>
         <main className='main-content'>
           <div className='neighborhood-text'>
               <span className='house-icon'><TfiHome /></span>
