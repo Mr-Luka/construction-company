@@ -1,6 +1,7 @@
 import './Portfolio.css';
 import ProjectPortfolio from './Project-portfolio.jsx';
 
+// cover images fro projectes
 import kitchen from '../../assets/imgs/kitchen1.jpeg'
 
 export default function Portfolio(){
