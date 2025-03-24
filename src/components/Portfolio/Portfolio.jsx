@@ -12,7 +12,11 @@ export default function Portfolio(){
     const [openModal, setOpenModal] = useState(false);
 
     function handleOpenModal () {
-        setOpenModal(true);
+        setOpenModal(openModal => !openModal);
+    }
+
+    function handleCloseModal () {
+        setOpenModal(false);
     }
 
     useEffect(()=> {
@@ -32,7 +36,7 @@ export default function Portfolio(){
                 <ProjectPortfolio openModal={handleOpenModal} project='Kitchen' img={kitchen} description='Our kitchens are strong' />
                 <ProjectPortfolio openModal={handleOpenModal} project='Bathroom' img={kitchen} description='Our bathrooms are strong' />
             </div>
-            {openModal && <ProjectModal ref={modalRef} />}
+            {openModal && <ProjectModal ref={modalRef} onClose={handleCloseModal}/>}
         </div>
     )
 }

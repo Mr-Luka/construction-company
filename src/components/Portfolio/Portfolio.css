@@ -53,7 +53,84 @@
 }
 
 .projects-modal-wrapper{
-    background-color: black;
+    width: 90%;
+    text-align: center;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.projects-modal-wrapper button {
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.345);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.projects-modal-wrapper button:hover {
+    color: rgba(255, 0, 0, 0.53);
+}
+
+.projects-pictures{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.projects-pictures img {
+    margin: 0rem 0.1rem 0.5rem 0.1rem;
+    width: 45%;
+    background-size: cover;
+    background-position: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+
+.zoomed-image {
+    z-index: 10;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    max-width: 90%; 
+    max-height: 90%; 
+}
+
+.zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+
+.zoom-overlay img {
+    width: 90%;
+    background-size: cover;
+    background-position: center;
+}
+
+.zoom-image img{
+    width: 80%;
+    background-size: cover;
+    background-position: center;
 }
 
 @keyframes tilt {
