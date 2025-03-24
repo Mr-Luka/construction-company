@@ -127,11 +127,7 @@
     background-position: center;
 }
 
-.zoom-image img{
-    width: 80%;
-    background-size: cover;
-    background-position: center;
-}
+
 
 @keyframes tilt {
     0% {
@@ -161,6 +157,19 @@
 
     .our-work:hover {
         animation: tilt 0.3s ease forwards;
+    }
+
+    .zoom-overlay{
+        background-color: transparent;
+    }
+
+
+    .zoom-overlay img {
+        position: fixed; 
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        box-shadow: 0px 0px 50px 105px rgb(254, 254, 254);
     }
 }
 
