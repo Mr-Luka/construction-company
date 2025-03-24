@@ -1,6 +1,11 @@
-
+import {useState} from 'react';
 
 export default function ProjectPortfolio({project, description, img, alt}){
+    const [buttonClicked, setButtonClicked] = useState(false);
+    function handleClick(){
+        setButtonClicked(true);
+    }
+
     return (
          <div className='our-work'>
                 <div className='project'>
@@ -8,7 +13,7 @@ export default function ProjectPortfolio({project, description, img, alt}){
                     <p>{description}</p>
                     <img src={img} alt={alt}/>
                 </div>
-                <button>See More</button>
+                <button onClick={handleClick}>See More</button>
             </div>
     )
 }

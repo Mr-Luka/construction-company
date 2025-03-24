@@ -23,7 +23,7 @@
 /* Desktop Styles */
 @media (min-width: 768px) {
     .contact-bar {
-        background: linear-gradient(to right, rgba(34, 34, 34, 0.652), #4caf4f9a);
+        background: linear-gradient(to right, rgba(34, 34, 34, 0.652), #d5d5d59a);
         margin-top: 3.9rem;
         display: flex;
         justify-content: space-between;
