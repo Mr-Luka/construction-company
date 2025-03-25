@@ -1,46 +1,55 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { TfiHome } from 'react-icons/tfi';
 import './NavBar.css';
 
-export default function NavBar({contactRef, servicesRef, aboutRef}) {
-    const [isOpen, setIsOpen] = useState(false); // Initialize isOpen to false
+export default function NavBar({ contactRef, servicesRef, aboutRef }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     function toggleMenu() {
-        setIsOpen(isOpen=> !isOpen);
+        setIsOpen(!isOpen);
     }
 
-    function handleHomeClick(){
-        window.location.reload();
+    function handleHomeClick() {
+        navigate('/');
         setIsOpen(false);
     }
 
-    function handleContactClick(){
-        if(contactRef.current){
-            contactRef.current.scrollIntoView({behavior: 'smooth'}) // scroll to the ref
-        }
-        setIsOpen(false); // close the menu if open
-    }
-
-    function handleServicesClick(){
-        if(servicesRef.current){
-            servicesRef.current.scrollIntoView({behavior: 'smooth'}) // scroll to the servicesRef
-        }
+    function handleContactClick() {
+        navigate('/'); // Navigate to home
+        setTimeout(() => { // Delay to ensure navigation completes
+            if (contactRef.current) {
+                contactRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); // Adjust delay if needed
         setIsOpen(false);
     }
 
-    function handleAboutUsClick(){
-        if(aboutRef.current){
-            aboutRef.current.scrollIntoView({behavior: 'smooth'}) // scroll to the aboutRef
-        }
+    function handleServicesClick() {
+        navigate('/'); // Navigate to home
+        setTimeout(() => { // Delay to ensure navigation completes
+            if (servicesRef.current) {
+                servicesRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); // Adjust delay if needed
         setIsOpen(false);
     }
 
+    function handleAboutUsClick() {
+        navigate('/'); // Navigate to home
+        setTimeout(() => { // Delay to ensure navigation completes
+            if (aboutRef.current) {
+                aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100); // Adjust delay if needed
+        setIsOpen(false);
+    }
 
     return (
         <>
-            <header >
+            <header>
                 <div className="navBar-container">
                     <nav>
                         <div className="logo">
@@ -50,7 +59,7 @@ export default function NavBar({contactRef, servicesRef, aboutRef}) {
                         </div>
                         <ul className={isOpen ? 'nav-link active' : 'nav-link'}>
                             <li>
-                                <a onClick={handleHomeClick} className="active">
+                                <a onClick={handleHomeClick}>
                                     Home
                                 </a>
                             </li>

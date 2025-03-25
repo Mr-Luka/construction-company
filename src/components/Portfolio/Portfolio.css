@@ -13,6 +13,7 @@
     justify-content: space-around;
 }
 
+
 .our-work {
     margin: 3rem 0;
     background-color: rgba(225, 224, 223, 0.667);
@@ -52,6 +53,11 @@
     box-shadow: 5px 5px 15px rgb(251, 251, 251);
 }
 
+.project img:hover {
+    box-shadow: 5px 5px 15px rgb(0, 153, 255);
+    transition: transform 0.3s ease;
+}
+
 .projects-modal-wrapper{
     width: 90%;
     text-align: center;
@@ -63,7 +69,10 @@
     border: none;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
+    box-shadow: 0px 0px 10px 20px rgb(254, 254, 254);
 }
+
+
 
 .projects-modal-wrapper button {
     background-color: transparent;
@@ -76,6 +85,7 @@
 
 .projects-modal-wrapper button:hover {
     color: rgba(255, 0, 0, 0.53);
+    transition: transform 0.3s ease;
 }
 
 .projects-pictures{
@@ -93,6 +103,11 @@
     justify-content: space-around;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.projects-pictures img:hover {
+    transform: scale(1.1);
     transition: transform 0.3s ease;
 }
 
