@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import video from './assets/imgs/video-const.mp4';
@@ -27,13 +27,26 @@ function App() {
     const servicesRef = useRef(null);
     const aboutRef = useRef(null);
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    }
+
 
     return (
         <Router>
             <>
                 <div className="video-container">
                     <video src={video} type="video/mp4" autoPlay loop muted playsInline className="video-background"></video>
-                    <NavBar contactRef={contactRef} servicesRef={servicesRef} aboutRef={aboutRef} />
+                    <NavBar 
+                        contactRef={contactRef} 
+                        servicesRef={servicesRef} 
+                        aboutRef={aboutRef} 
+                        isMenuOpen={isMenuOpen}
+                        setIsMenuOpen={setIsMenuOpen}
+                        closeMenu={closeMenu}
+                    />
                     <LicenseContact license={4487682} email="neighborhood.remodeling@gmail.com" />
                     <Routes>
                         <Route path="/" element={<>

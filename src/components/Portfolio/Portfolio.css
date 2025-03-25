@@ -15,6 +15,7 @@
 
 
 .our-work {
+    width: 90%;
     margin: 3rem 0;
     background-color: rgba(225, 224, 223, 0.667);
     padding-bottom: 2.5rem;
@@ -46,6 +47,7 @@
 .project img {
     margin: 2rem 0 1rem 0;
     width: 80%;
+    height: 50vh;
     background-size: cover;
     background-position: center;
     border: 2px solid white;
@@ -98,7 +100,7 @@
 .projects-pictures img {
     margin: 0rem 0.1rem 0.5rem 0.1rem;
     width: 45%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     justify-content: space-around;
     border-radius: 5px;
@@ -118,7 +120,6 @@
     position: fixed; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
     max-width: 90%; 
     max-height: 90%; 
 }
@@ -138,7 +139,7 @@
 
 .zoom-overlay img {
     width: 90%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
@@ -174,17 +175,26 @@
         animation: tilt 0.3s ease forwards;
     }
 
-    .zoom-overlay{
-        background-color: transparent;
+    .projects-modal-wrapper{
+        margin-top: 1rem;
+        width: 70%;
+        height: 80vh;
+    }
+
+    .zoom-overlay {
+        background-color: rgba(0, 0, 0, 0.8); 
     }
 
 
     .zoom-overlay img {
-        position: fixed; 
-        top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%); 
-        box-shadow: 0px 0px 50px 105px rgb(254, 254, 254);
+        position: static;
+        transform: none;
+        box-shadow: none; 
+    }
+
+    .zoomed-image {
+        position: static;
+        transform: none;
     }
 }
 

@@ -1,17 +1,7 @@
 import {useState} from 'react';
-
-import constructionImage from '../../assets/imgs/remodeling.jpeg';
-import kitchen from '../../assets/imgs/kitchen.jpeg';
-import remodeling from '../../assets/imgs/remodeling-2.jpg';
 import './Portfolio-slider.css';
 
-const slides = [
-    {url: constructionImage, title: 'kitchen'},
-    {url: kitchen, title: 'kitchen'},
-    {url: remodeling, title: 'kitchen'},
-    {url: constructionImage, title: 'kitchen'},
-    {url: kitchen, title: 'kitchen'},
-]
+import slides from './projects-object.js';
 
 export default function PortfolioImageSlider(){
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -30,10 +30,10 @@ a {
 
 .video-container {
   position: relative;
-  height: 100vh; /* Use vh for viewport height */
+  height: 100vh; 
   overflow: hidden;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.069);
+  background-color: rgba(60, 60, 60, 0.445);
 }
 
 .video-background {
@@ -44,7 +44,7 @@ a {
   height: 100%;
   object-fit: cover;
   z-index: -2;
-  filter: blur(3px);
+  filter: blur(1px);
 }
 
 .main-content {

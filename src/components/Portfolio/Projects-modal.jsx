@@ -1,8 +1,8 @@
 import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
+import {roofs, windows, paint, backyard, kitchen, bathrooms} from './portfolio-object-images.js';
 
-import pictureProject from '../../assets/imgs/bathroom.jpg';
 
-const ProjectsModal = forwardRef(function ProjectsModal(props, ref) { // Add props here
+const ProjectsModal = forwardRef(function ProjectsModal(props, ref) { 
     const modalProjectsRef = useRef();
     const [zoomedImage, setZoomedImage] = useState( null);
 
@@ -25,16 +25,37 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) { // Add pro
         setZoomedImage(null);
     }
 
+    function getProjectImages(){
+        switch (props.project) {
+            case 'roofs':
+                return roofs;
+            case 'windows':
+                return windows;
+            case 'paint':
+                return paint;
+            case 'backyard':
+                return backyard;
+            case 'kitchen':
+                return kitchen;
+            case 'bathrooms':
+                return bathrooms;
+            default:
+                return []
+        }
+    }
+
+    const images = getProjectImages();
+
     return (
         <dialog className="projects-modal-wrapper" ref={modalProjectsRef}>
             <form method="dialog">
                 <button onClick={()=> props.onClose()}>X</button>
             </form>
             <div className="projects-pictures">
-                {[...Array(8)].map((_, index)=> (
+                {images.map((image, index)=> (
                     <img 
                         key={index}
-                        src={pictureProject}
+                        src={image.url}
                         alt={`Project ${index + 1}`}
                         onClick={() => handleImageClick(index)}
                         className={zoomedImage === index ? 'zoomed-image' : ''}
@@ -42,7 +63,7 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) { // Add pro
                 ))}
                 {zoomedImage !== null && (
                     <div className="zoom-overlay" onClick={handleZoomOut}>
-                        <img src={pictureProject} alt="Zoomed Project" className="zoom-image" />
+                        <img src={images[zoomedImage].url} alt="Zoomed Project" className="zoom-image" />
                     </div>
                 )}
             </div>
