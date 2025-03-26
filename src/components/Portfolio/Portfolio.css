@@ -60,6 +60,8 @@
     transition: transform 0.3s ease;
 }
 
+
+
 .projects-modal-wrapper{
     width: 90%;
     text-align: center;
@@ -67,7 +69,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+    z-index: 998;
     border: none;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
@@ -177,8 +179,12 @@
 
     .projects-modal-wrapper{
         margin-top: 1rem;
-        width: 70%;
+        width: 50%;
         height: 80vh;
+    }
+
+    .projects-pictures img {
+        width: 20%;
     }
 
     .zoom-overlay {

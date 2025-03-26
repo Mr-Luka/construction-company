@@ -56,10 +56,11 @@
 /* Desktop Styles */
 @media (min-width: 769px) {
     .remodeling-process {
-        width: 90%; 
+        width: 100%; 
         padding: 3rem; 
         margin-top: 4rem;
-        border-radius: 15px;
+        border-radius: 5px;
+        box-shadow: none;
     }
 
     .remodeling-title {

@@ -15,6 +15,7 @@ export default function Portfolio(){
     function handleOpenModal (project) {
         setSelectedProject(project);
         setOpenModal(openModal => !openModal);
+        setOpenModal(true);
     }
 
     function handleCloseModal () {
@@ -22,8 +23,12 @@ export default function Portfolio(){
     }
 
     useEffect(()=> {
+        console.log('openModal state:', openModal)
+        console.log('modalRef.current:', modalRef.current)
         if(openModal && modalRef.current){
             modalRef.current.open();
+        } else if (modalRef.current) {
+            modalRef.current.close();
         }
     }, [openModal]);
 

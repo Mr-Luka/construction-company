@@ -1,31 +1,57 @@
-import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
-import {roofs, windows, paint, backyard, kitchen, bathrooms} from './portfolio-object-images.js';
+import { useState, useRef, forwardRef, useImperativeHandle, useEffect } from 'react';
+import { roofs, windows, paint, backyard, kitchen, bathrooms } from './portfolio-object-images.js';
 
-
-const ProjectsModal = forwardRef(function ProjectsModal(props, ref) { 
+const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
     const modalProjectsRef = useRef();
-    const [zoomedImage, setZoomedImage] = useState( null);
+    const [zoomedImage, setZoomedImage] = useState(null);
 
-    useImperativeHandle(ref, () => {
-        return {
-            open() {
+    useImperativeHandle(ref, () => ({
+        open() {
+            if (modalProjectsRef.current) {
                 modalProjectsRef.current.showModal();
-            },
-            close() {
-                modalProjectsRef.current.close();
+                setTimeout(() => {
+                    document.addEventListener('click', handleOutsideClick);
+                }, 0);
             }
+        },
+        close() {
+            if (modalProjectsRef.current) {
+                modalProjectsRef.current.close();
+                document.removeEventListener('click', handleOutsideClick);
+            }
+        },
+    }));
+
+    useEffect(() => {
+        return () => {
+            document.removeEventListener('click', handleOutsideClick);
         };
-    });
+    }, []);
+
+    function handleOutsideClick(e) {
+        if (!modalProjectsRef.current) return;
+
+        const rect = modalProjectsRef.current.getBoundingClientRect();
+        if (
+            e.clientX < rect.left ||
+            e.clientX > rect.right ||
+            e.clientY < rect.top ||
+            e.clientY > rect.bottom
+        ) {
+            props.onClose();
+            document.removeEventListener('click', handleOutsideClick);
+        }
+    }
 
     function handleImageClick(index) {
         setZoomedImage(index);
     }
 
-    function handleZoomOut(){
+    function handleZoomOut() {
         setZoomedImage(null);
     }
 
-    function getProjectImages(){
+    function getProjectImages() {
         switch (props.project) {
             case 'roofs':
                 return roofs;
@@ -40,34 +66,42 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
             case 'bathrooms':
                 return bathrooms;
             default:
-                return []
+                return [];
         }
     }
 
     const images = getProjectImages();
 
     return (
-        <dialog className="projects-modal-wrapper" ref={modalProjectsRef}>
-            <form method="dialog">
-                <button onClick={()=> props.onClose()}>X</button>
-            </form>
-            <div className="projects-pictures">
-                {images.map((image, index)=> (
-                    <img 
-                        key={index}
-                        src={image.url}
-                        alt={`Project ${index + 1}`}
-                        onClick={() => handleImageClick(index)}
-                        className={zoomedImage === index ? 'zoomed-image' : ''}
-                    />
-                ))}
-                {zoomedImage !== null && (
-                    <div className="zoom-overlay" onClick={handleZoomOut}>
-                        <img src={images[zoomedImage].url} alt="Zoomed Project" className="zoom-image" />
-                    </div>
-                )}
-            </div>
-        </dialog>
+        <>
+            <dialog className="projects-modal-wrapper" ref={modalProjectsRef}>
+                <form method="dialog">
+                    <button onClick={(e) => { 
+                        e.stopPropagation(); 
+                        props.onClose();
+                    }}>X</button>
+                </form>
+                <div className="projects-pictures">
+                    {images.map((image, index) => (
+                        <img
+                            key={index}
+                            src={image.url}
+                            alt={`Project ${index + 1}`}
+                            onClick={(e) => { 
+                                e.stopPropagation(); 
+                                handleImageClick(index);
+                            }}
+                            className={zoomedImage === index ? 'zoomed-image' : ''}
+                        />
+                    ))}
+                    {zoomedImage !== null && (
+                        <div className="zoom-overlay" onClick={handleZoomOut}>
+                            <img src={images[zoomedImage].url} alt="Zoomed Project" className="zoom-image" />
+                        </div>
+                    )}
+                </div>
+            </dialog>
+        </>
     );
 });
 
