@@ -4,6 +4,8 @@ import { roofs, windows, paint, backyard, kitchen, bathrooms } from './portfolio
 const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
     const modalProjectsRef = useRef();
     const [zoomedImage, setZoomedImage] = useState(null);
+    const [modalSize, setModalSize] = useState({ width: "80%", height: "80vh" });
+    const [isZoomed, setIsZoomed] = useState(false);
 
     useImperativeHandle(ref, () => ({
         open() {
@@ -43,14 +45,6 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
         }
     }
 
-    function handleImageClick(index) {
-        setZoomedImage(index);
-    }
-
-    function handleZoomOut() {
-        setZoomedImage(null);
-    }
-
     function getProjectImages() {
         switch (props.project) {
             case 'roofs':
@@ -72,34 +66,58 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
 
     const images = getProjectImages();
 
+    function handleImageClick(index) {
+        const img = new Image();
+        img.src = images[index].url;
+
+        img.onload = () => {
+            setModalSize({ width: `${img.width}px`, height: `${img.height}px` });
+            setZoomedImage(images[index].url);
+            setIsZoomed(true);
+
+            // Disable scrolling when zoomed in
+            modalProjectsRef.current.classList.add("no-scroll");
+        };
+    }
+
+    function handleZoomOut() {
+        setZoomedImage(null);
+        setModalSize({ width: "80%", height: "80vh" }); // Restore modal to original size
+        setIsZoomed(false);
+
+        // Enable scrolling again
+        modalProjectsRef.current.classList.remove("no-scroll");
+    }
+
     return (
         <>
-            <dialog className="projects-modal-wrapper" ref={modalProjectsRef}>
+            <dialog className={`projects-modal-wrapper ${isZoomed ? 'no-scroll' : ''}`} ref={modalProjectsRef} style={modalSize}>
                 <form method="dialog">
                     <button onClick={(e) => { 
                         e.stopPropagation(); 
                         props.onClose();
                     }}>X</button>
                 </form>
-                <div className="projects-pictures">
-                    {images.map((image, index) => (
-                        <img
-                            key={index}
-                            src={image.url}
-                            alt={`Project ${index + 1}`}
-                            onClick={(e) => { 
-                                e.stopPropagation(); 
-                                handleImageClick(index);
-                            }}
-                            className={zoomedImage === index ? 'zoomed-image' : ''}
-                        />
-                    ))}
-                    {zoomedImage !== null && (
-                        <div className="zoom-overlay" onClick={handleZoomOut}>
-                            <img src={images[zoomedImage].url} alt="Zoomed Project" className="zoom-image" />
-                        </div>
-                    )}
-                </div>
+
+                {!zoomedImage ? (
+                    <div className="projects-pictures">
+                        {images.map((image, index) => (
+                            <img
+                                key={index}
+                                src={image.url}
+                                alt={`Project ${index + 1}`}
+                                onClick={(e) => { 
+                                    e.stopPropagation(); 
+                                    handleImageClick(index);
+                                }}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="zoomed-container" onClick={handleZoomOut}>
+                        <img src={zoomedImage} alt="Zoomed Project" className="zoomed-image" />
+                    </div>
+                )}
             </dialog>
         </>
     );

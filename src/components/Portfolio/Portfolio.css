@@ -62,10 +62,11 @@
 
 
 
-.projects-modal-wrapper{
-    width: 90%;
+.projects-modal-wrapper {
+    width: 80%;
+    height: 80vh;
     text-align: center;
-    position: fixed; 
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -74,9 +75,13 @@
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     box-shadow: 0px 0px 10px 20px rgb(254, 254, 254);
+    overflow-y: auto; /* Enable scrolling when images overflow */
+    transition: width 0.3s ease, height 0.3s ease;
 }
 
-
+.projects-modal-wrapper.no-scroll {
+    overflow: hidden; /* Hide scrolling when zoomed */
+}
 
 .projects-modal-wrapper button {
     background-color: transparent;
@@ -92,19 +97,17 @@
     transition: transform 0.3s ease;
 }
 
-.projects-pictures{
+.projects-pictures {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 1rem;
 }
 
 .projects-pictures img {
-    margin: 0rem 0.1rem 0.5rem 0.1rem;
+    margin: 0.5rem;
     width: 45%;
-    background-size: contain;
-    background-position: center;
-    justify-content: space-around;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -115,35 +118,21 @@
     transition: transform 0.3s ease;
 }
 
-
-
-.zoomed-image {
-    z-index: 10;
-    position: fixed; 
-    top: 50%;
-    left: 50%;
-    max-width: 90%; 
-    max-height: 90%; 
-}
-
-.zoom-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+.zoomed-container {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11;
+    cursor: pointer;
 }
 
-.zoom-overlay img {
-    width: 90%;
-    background-size: contain;
-    background-position: center;
+.zoomed-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
 }
+
 
 
 
@@ -179,30 +168,13 @@
 
     .projects-modal-wrapper{
         margin-top: 1rem;
-        width: 50%;
+        width: 80%;
         height: 80vh;
     }
 
     .projects-pictures img {
-        width: 20%;
+        width: 30%;
     }
 
-    .zoom-overlay {
-        background-color: rgba(0, 0, 0, 0.8); 
-    }
-
-
-    .zoom-overlay img {
-        position: static;
-        transform: none;
-        box-shadow: none; 
-    }
-
-    .zoomed-image {
-        position: static;
-        transform: none;
-    }
+    
 }
-
-
-
