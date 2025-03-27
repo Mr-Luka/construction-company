@@ -5,13 +5,14 @@ import video from './assets/imgs/video-const.mp4';
 import { TfiHome } from "react-icons/tfi";
 import { FaPhoneAlt } from "react-icons/fa";
 
+// images
 import landscape from './assets/imgs/landscaping.jpeg';
 import hardscaping from './assets/imgs/hardscaping.jpeg';
 import kitchen from './assets/imgs/kitchen1.jpeg';
 import bathroom from './assets/imgs/bathroom.jpg';
 import paint from './assets/imgs/paint.jpg';
 
-
+// components
 import NavBar from './components/NavBar/NavBar.jsx';
 import Portfolio from './components/Portfolio/Portfolio.jsx';
 import LicenseContact from './components/License-contact/LicenseContact.jsx';
@@ -20,6 +21,7 @@ import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-sli
 import WhatWeDo from './components/WhatWeDo/WhatWeDo.jsx';
 import RemodelingProcess from './components/RemodelingProcess/RemodelingProcess.jsx';
 import FreeEstimate from './components/Free-Estimate/Free-Estimate.jsx';
+import Testimonials from './components/Testimonials/Testimonials.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 function App() {
@@ -75,6 +77,7 @@ function App() {
                                     </div>
                                     <RemodelingProcess />
                                     <FreeEstimate />
+                                    <Testimonials />
                                     <Footer logo={<TfiHome />} contactRef={contactRef} />
                                 </div>
                             </main>
