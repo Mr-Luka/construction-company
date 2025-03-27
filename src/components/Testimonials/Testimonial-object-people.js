@@ -13,7 +13,22 @@ import testiFace7 from '../../assets/imgs/TestimonialsData/faces/face7.jpg';
 import testiFace8 from '../../assets/imgs/TestimonialsData/faces/face8.jpg';
 import testiFace9 from '../../assets/imgs/TestimonialsData/faces/face9.jpg';
 import testiFace10 from '../../assets/imgs/TestimonialsData/faces/face10.jpg';
+import testiFace11 from '../../assets/imgs/TestimonialsData/faces/face11.jpg';
+import testiFace12 from '../../assets/imgs/TestimonialsData/faces/face12.jpg';
 
+import rating5 from '../../assets/imgs/TestimonialsData/5-stars.png';
+import rating4 from '../../assets/imgs/TestimonialsData/4-stars.png';
+import rating4AndHalf from '../../assets/imgs/TestimonialsData/4.5-stars.png';
+import rating3AndHalf from '../../assets/imgs/TestimonialsData/3.5-stars.png';
+import rating2AndHalf from '../../assets/imgs/TestimonialsData/2.5-stars.png';
+
+export const ratings = [
+    {fiveStars: rating5},
+    {fourStars: rating4},
+    {fourAndHalfStars: rating4AndHalf},
+    {threeAndHalfStars: rating3AndHalf},
+    {twoAndHalfStars: rating2AndHalf},
+];
 
 export const testimonialVideos = [
     {video: testiVideo1},
@@ -33,4 +48,6 @@ export const testimonialData = [
     {image: testiFace8, name: "Michael", profession: "FireFighter", text: "Great communication and timely completion. Their expertise is truly impressive."},
     {image: testiFace9, name: "Jessica", profession: "SoftwareDeveloper", text: "We were impressed by their attention to detail and commitment to customer satisfaction. They provided a thorough estimate and kept us informed of any changes or updates. The project was completed on time, and the results are beautiful. We highly recommend their services to anyone seeking quality construction work."},
     {image: testiFace10, name: "William", profession: "Fitness Trainer", text: "Their team was incredibly helpful and supportive throughout our home addition project. They offered creative solutions and provided expert guidance, ensuring the project met our needs and exceeded our expectations. The quality of their work is exceptional, and we are thrilled with our new space."},
+    {image: testiFace11, name: "Radoje", profession: "Real Estate", text: "We hired them for a challenging renovation project, and they delivered outstanding results. Their crew was skilled and experienced, and their communication was excellent. They completed the project on time and within budget, with exceptional attention to detail. We highly recommend their services to anyone seeking quality construction work."},
+    {image: testiFace12, name: "Ljubisa", profession: "Sales", text: "Excellent craftsmanship! Finished on time and within budget. Will use them again."  },
 ];

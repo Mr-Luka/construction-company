@@ -1,0 +1,36 @@
+.testimonials-wrapper {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 2rem
+}
+
+.video-and-text-testimonials {
+    display: flex;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.image-rating {
+    width: 10%;
+}
+
+.testimonial-video{
+    width: 30%;
+}
+
+.customer-face{
+    width: 10%;
+}
+
+.image-rating-row{
+    width: 10%;
+}
+
+.customer-face-row{
+    width: 10%;
+}
