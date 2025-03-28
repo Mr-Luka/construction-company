@@ -7,17 +7,20 @@
 
 .testimonials-wrapper h1 {
     margin-bottom: 2rem;
+    color: rgb(42, 131, 233);
 }
 
 .video-and-text-testimonials {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .video-and-text-testimonials-2{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
+    align-items: center;
 }
 
 .video-div {
@@ -51,7 +54,8 @@
     flex-direction: column;
     align-items: start;
     text-align: left;
-    background-color: rgba(239, 238, 238, 0.862);
+    background-color: rgba(86, 157, 238, 0);
+    border: 1px solid white;
     border-radius: 15px;
     padding: 1rem 1rem;
     transition: all 0.3s ease-in-out;
@@ -61,10 +65,10 @@
 }
 
 .testimonial:hover {
-    background-color: #91c077ad;
-    transform: scale(1.1);
+    background-color: rgba(239, 238, 238, 0.862);
+    border: 3px solid white;
+    transform: scale(1);
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 0px 10px 10px rgba(223, 225, 123, 0.594);
 }
 
 
@@ -128,14 +132,55 @@
 }
 
 .testimonial-row:hover {
-    background-color: #91c077ad;
-    transform: scale(1.1);
+    background-color: rgba(86, 157, 238, 0);
+    border: 2px solid white;
+    transform: scale(1);
     transition: all 0.3s ease-in-out;
+}
+
+
+
+/* mini phone 390px + */
+@media (max-width: 767px){ 
+    .testimonials-wrapper{
+        width: 100%;
+    }
+    .video-and-text-testimonials,
+    .video-and-text-testimonials-2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonials-container{
+        width: 100%;
+    }
+    .testimonial,
+    .testimonial-row{
+        width: 100%;
+        margin: 1rem 0 0 0;
+    }
+    .row-testimonials{
+        margin-bottom: 2rem;
+    }
+    .video-div {
+        width: 90%;
+        height: 60vh;
+    }
+    .image-rating{
+        width: 20%;
+        margin-bottom: 1rem;
+    }
+
+    .row-testimonials{
+        flex-direction: column;
+    }
+
 }
 
 @media (min-width: 769px) {
     .testimonials-wrapper{
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0);
     }
 
     .video-div {
@@ -146,16 +191,9 @@
         width: 15%;
         margin-bottom: 1rem;
     }
-    .testimonial{
-         box-shadow: 0px 0px 10px 10px rgba(212, 212, 212, 0.594);
-    }
 
     .row-testimonials{
         margin-bottom: 2rem;
-    }
-
-    .testimonial-row{
-        box-shadow: 0px 0px 10px 10px rgba(212, 212, 212, 0.594);
     }
 
 }

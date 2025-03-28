@@ -45,6 +45,18 @@
     margin-bottom: 2rem;
 }
 
+@keyframes tilt {
+    0% {
+        transform: rotate(0deg); 
+    }
+    50% {
+        transform: rotate(5deg); 
+    }
+    100% {
+        transform: rotate(0deg); 
+    }
+}
+
 @media (min-width: 769px) {
     .hide-on-desktop{
         display: none;
@@ -61,10 +73,13 @@
         margin-bottom: 20px;
     }
     .what-we-do-section {
-        background-color: rgba(94, 150, 94, 0.802);
         border-radius: 35px;
         border: 1px solid rgba(255, 255, 255, 0.573);
         box-shadow: 5px 5px 2px rgba(255, 254, 251, 0.489);
+    }
+
+    .what-we-do-section:hover {
+        animation: tilt 0.3s ease forwards;
     }
 
     .what-we-do-section img {

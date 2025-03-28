@@ -171,6 +171,25 @@ a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.465);
 }
 
+/* iphone mini 390px + */
+@media (max-width: 767px){
+  .neighborhood-text {
+  text-align: center;
+  margin: 15rem 0 0rem 0;
+}
+
+.neighborhood-text h2 {
+  font-size: 2rem;
+}
+
+.neighborhood-text h3 {
+  font-size: 1rem;
+}
+
+.house-icon svg {
+  font-size: 3rem;
+}
+}
 
 /* Desktop styles */
 @media (min-width: 769px) {

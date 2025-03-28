@@ -89,6 +89,17 @@ header {
 }
 
 
+@media (max-width: 767px){
+  .navBar-container .nav-link {
+      height: 25vh;
+      border-bottom-left-radius: 25px;
+  }
+
+  .navBar-container ul li a{
+    font-size: 0.8rem;
+  }
+}
+
 /* Desktop Styles */
 @media (min-width: 769px) {
   .navBar-container {

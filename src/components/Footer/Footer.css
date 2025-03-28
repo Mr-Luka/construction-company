@@ -65,15 +65,17 @@
     color: black;
     text-align: center;
     text-shadow: 1px 1px 2px white;
+    margin-bottom: 1rem;
 }
 .contact-hours{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin: 0.5rem 0;
 }
 
 .process-icon-footer{
-    margin: 1.2rem 1rem 0 0;
+    margin: 0rem 1rem 0 0;
 }
 
 .process-icon-footer svg {
@@ -103,6 +105,12 @@
     transition: transform 0.3s;
 }
 
+@media (max-width: 767px){
+  .contact-footer{
+    width: 90%;
+  }
+}
+
 
 /* Desktop styles */
 @media (min-width: 769px){
@@ -110,7 +118,6 @@
     padding: 1rem 0 1rem 0;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
     margin-bottom: 2rem;
   }
 
@@ -118,14 +125,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 80%;
+    width: 100%;
   }
   .neighborhood-text-footer{
     width: 30%;
+    margin: 0 0 0 1rem;
   }
   .neighborhood-text-footer h2 {
     font-size: 1.5rem;
-    margin:0 1rem 0 1rem;
   }
 
   .neighborhood-text-footer h3 {
@@ -137,20 +144,19 @@
   }
 
   .contact-footer{
-    width: 70%;
+    width: 60%;
     background-color: transparent;
     box-shadow: none;
   }
 
   .socials-f{
-    width: 15%;
+    width: 10%;
     flex-direction: column;
     border-radius: 0;
     background-color: transparent;
     border: none;
     padding: 0rem;
     box-shadow: none;
-    margin-left: 2rem;
     cursor: pointer;
   }
 
