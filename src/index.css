@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-
+/* Mobile first */
 body {
   max-width: 768px;
   height: auto;
