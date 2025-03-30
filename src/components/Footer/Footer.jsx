@@ -1,5 +1,5 @@
 import './Footer.css';
-import {useRef} from 'react';
+
 
 // icons
 import { FaClock } from "react-icons/fa";
