@@ -10,7 +10,9 @@ export default function About ({aboutRef}){
             <div className="about" ref={aboutRef}>
                 <h1>About Us</h1>
                 <div className='about-me'>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Our mission is to help homeowners in Southern California bring their vision to life by creating by creating
+                        beautiful, functional and lasting spaces. We believe in honest communication, attention
+                        to detail, and treating every home as if it were our own.</p>
                     <div className='my-picture'>
                         <img src={bojana} alt='CEO Bojana' />
                     </div>

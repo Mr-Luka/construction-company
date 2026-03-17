@@ -49,7 +49,7 @@ function App() {
                         setIsMenuOpen={setIsMenuOpen}
                         closeMenu={closeMenu}
                     />
-                    <LicenseContact license={4487682} email="neighborhood.remodeling@gmail.com" />
+                    <LicenseContact license={1107770} email="neighborhoodremodeling@gmail.com" />
                     <Routes>
                         <Route path="/" element={<>
                             <main className="main-content">
@@ -83,7 +83,7 @@ function App() {
                             </main>
                             <div className="absolute-phone-number">
                                 <span className="call-us-absolute"><FaPhoneAlt /></span>
-                                <h6>Call: 800-555-5555</h6>
+                                <h6>Call: 323-304-6498</h6>
                             </div>
                         </>} />
                         <Route path="/portfolio" element={<>
