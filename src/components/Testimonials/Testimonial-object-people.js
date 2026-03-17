@@ -31,8 +31,8 @@ export const ratings = [
 ];
 
 export const testimonialVideos = [
-    // {video: testiVideo1},
-    // {video: testiVideo2},
+    {video: testiVideo1},
+    {video: testiVideo2},
     {video: testiVideo3},
     {video: testiVideo4},
 ]
