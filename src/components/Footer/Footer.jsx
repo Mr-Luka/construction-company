@@ -36,7 +36,7 @@ export default function Footer ({logo, contactRef}){
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><IoMdMail /></span>
-                        <p>neighborhoodremodeling@gmail.com</p>
+                        <p>neighborhoodremodelinginc@gmail.com</p>
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><GrUserWorker /></span>

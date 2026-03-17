@@ -49,7 +49,7 @@ function App() {
                         setIsMenuOpen={setIsMenuOpen}
                         closeMenu={closeMenu}
                     />
-                    <LicenseContact license={1107770} email="neighborhoodremodeling@gmail.com" />
+                    <LicenseContact license={1107770} email="neighborhoodremodelinginc@gmail.com" />
                     <Routes>
                         <Route path="/" element={<>
                             <main className="main-content">
