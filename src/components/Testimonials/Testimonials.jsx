@@ -12,9 +12,9 @@ export default function Testemonials (){
             <div className="testimonials-wrapper">
                 <h1>The Voice of our Clients</h1>
                 <div className='video-and-text-testimonials'>
-                    <div className="video-div"> 
-                        {/* <video src={testimonialVideos[0].video} type='video/mp4' autoPlay loop muted playsInline className='testimonial-video'></video> */}
-                    </div>
+                    {/* <div className="video-div"> 
+                        <video src={testimonialVideos[0].video} type='video/mp4' autoPlay loop muted playsInline className='testimonial-video'></video>
+                    </div> */}
                     <div className='testimonials-container'>
                         <TestemonicalContainer
                             imgRating={ratings[0].fiveStars}
@@ -63,9 +63,9 @@ export default function Testemonials (){
                     />
                 </div>
                 <div className='video-and-text-testimonials-2'>
-                    <div className="video-div"> 
-                        {/* <video src={testimonialVideos[1].video} type='video/mp4' autoPlay loop muted playsInline className='testimonial-video'></video> */}
-                    </div>
+                    {/* <div className="video-div"> 
+                        <video src={testimonialVideos[1].video} type='video/mp4' autoPlay loop muted playsInline className='testimonial-video'></video>
+                    </div> */}
                     <div className='testimonials-container'>
                         <TestemonicalContainer
                             imgRating={ratings[0].fiveStars}
