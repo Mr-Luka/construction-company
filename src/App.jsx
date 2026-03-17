@@ -73,7 +73,7 @@ function App() {
                                     <h4>Our Projects</h4>
                                     <ImageSlider />
                                     <div className="call-us-now">
-                                        <h5>Call us now: <span>800-555-5555</span> For a <span>FREE ESTIMATE</span></h5>
+                                        <h5>Call us now: <span>323-304-6498</span> For a <span>FREE ESTIMATE</span></h5>
                                     </div>
                                     <RemodelingProcess />
                                     <FreeEstimate />
