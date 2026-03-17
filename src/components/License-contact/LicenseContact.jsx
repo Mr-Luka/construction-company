@@ -7,7 +7,7 @@ export default function LicenseContact({license, email}){
     return (
         <div className="contact-bar" >
             <div className="left-section">
-                <span className="license">License # {license}</span>
+                <span className="license">Constractor: Bojana Vujosevic <br>License # {license}</br></span>
                 <span className="hiring">We're Hiring!</span>
             </div>
             <div className="right-section">
