@@ -32,11 +32,11 @@ export default function Footer ({logo, contactRef}){
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><FaPhoneAlt /></span>
-                        <p>800 - 555 -555</p>
+                        <p>323-304-6498</p>
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><IoMdMail /></span>
-                        <p>neighborhood.remodeling@gmail.com</p>
+                        <p>neighborhoodremodeling@gmail.com</p>
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><GrUserWorker /></span>
@@ -44,7 +44,7 @@ export default function Footer ({logo, contactRef}){
                     </div>
                     <div className='contact-hours'>
                         <span className='process-icon-footer'><ImLocation /></span>
-                        <p>85884 Some Address Blvd, #205, Newport Beach, CA 93058</p>
+                        <p>416 Enclave circle, office 305, Costa Mesa, CA 92626</p>
                     </div>
                 </div>
                 <div className='socials-f'>
