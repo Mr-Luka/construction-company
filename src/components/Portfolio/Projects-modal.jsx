@@ -1,5 +1,5 @@
 import { useState, useRef, forwardRef, useImperativeHandle, useEffect } from 'react';
-import { roofs, windows, paint, backyard, kitchen, bathrooms } from './portfolio-object-images.js';
+import { pools, roofs, windows, paint, backyard, kitchen, bathrooms } from './portfolio-object-images.js';
 
 const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
     const modalProjectsRef = useRef();
@@ -47,6 +47,8 @@ const ProjectsModal = forwardRef(function ProjectsModal(props, ref) {
 
     function getProjectImages() {
         switch (props.project) {
+            case 'pools':
+                return pools;
             case 'roofs':
                 return roofs;
             case 'windows':

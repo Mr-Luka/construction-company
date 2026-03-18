@@ -1,3 +1,21 @@
+import pool1 from '../../assets/imgs/Portfolio/hardscaping/pool1.jpg';
+import pool2 from '../../assets/imgs/Portfolio/hardscaping/pool2.jpg';
+import pool3 from '../../assets/imgs/Portfolio/hardscaping/pool3.jpg';
+import pool4 from '../../assets/imgs/Portfolio/hardscaping/pool4.jpg';
+import pool5 from '../../assets/imgs/Portfolio/hardscaping/pool5.jpg';
+import pool6 from '../../assets/imgs/Portfolio/hardscaping/pool6.jpg';
+import pool7 from '../../assets/imgs/Portfolio/hardscaping/pool7.jpg';
+import pool8 from '../../assets/imgs/Portfolio/hardscaping/pool8.jpg';
+import pool9 from '../../assets/imgs/Portfolio/hardscaping/pool9.jpg';
+import pool10 from '../../assets/imgs/Portfolio/hardscaping/pool10.jpg';
+import pool11 from '../../assets/imgs/Portfolio/hardscaping/pool11.jpg';
+import pool12 from '../../assets/imgs/Portfolio/hardscaping/pool12.jpg';
+import pool13 from '../../assets/imgs/Portfolio/hardscaping/pool13.jpg';
+import pool14 from '../../assets/imgs/Portfolio/hardscaping/pool14.jpg';
+import pool15 from '../../assets/imgs/Portfolio/hardscaping/pool15.jpg';
+import pool16 from '../../assets/imgs/Portfolio/hardscaping/pool16.jpg';
+
+
 import roof1 from '../../assets/imgs/Portfolio/roof/roof-1.jpg';
 import roof2 from '../../assets/imgs/Portfolio/roof/roof-2.jpg';
 import roof3 from '../../assets/imgs/Portfolio/roof/roof-3.jpg';
@@ -51,6 +69,26 @@ import bathroom5 from '../../assets/imgs/Portfolio/bathroom/bathroom-5.jpg';
 import bathroom6 from '../../assets/imgs/Portfolio/bathroom/bathroom-6.jpg';
 import bathroom7 from '../../assets/imgs/Portfolio/bathroom/bathroom-7.jpg';
 import bathroom8 from '../../assets/imgs/Portfolio/bathroom/bathroom-8.jpg';
+
+
+export const pools = [
+    {url: pool1, title: 'pool1'},
+    {url: pool2, title: 'pool2'},
+    {url: pool3, title: 'pool3'},
+    {url: pool4, title: 'pool4'},
+    {url: pool5, title: 'pool5'},
+    {url: pool6, title: 'pool6'},
+    {url: pool7, title: 'pool7'},
+    {url: pool8, title: 'pool8'},
+    {url: pool9, title: 'pool9'},
+    {url: pool10, title: 'pool10'},
+    {url: pool11, title: 'pool11'},
+    {url: pool12, title: 'pool12'},
+    {url: pool13, title: 'pool13'},
+    {url: pool14, title: 'pool14'},
+    {url: pool15, title: 'pool15'},
+    {url: pool16, title: 'pool16'}
+]
 
 export const roofs = [
     {url: roof1, title: 'house-roof1'},
