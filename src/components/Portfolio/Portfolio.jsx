@@ -3,7 +3,7 @@ import {useState, useRef, useEffect} from 'react';
 import './Portfolio.css';
 import ProjectPortfolio from './Project-portfolio.jsx';
 import ProjectModal from './Projects-modal.jsx';
-import { pools, roofs, windows, paint, backyard, kitchen, bathrooms } from './portfolio-object-images.js';
+import { hardscaping_landscaping, roofs, windows, paint, kitchen, bathrooms } from './portfolio-object-images.js';
 
 
 
@@ -36,13 +36,15 @@ export default function Portfolio(){
         <div className="portfolio-wrapper">
             <h1>Our Projects</h1>
             <div className='our-projects'>
-                <ProjectPortfolio openModal={()=> handleOpenModal('pools')} project='Hardscpaing' img={pools[0].url} />
-                <ProjectPortfolio openModal={()=> handleOpenModal('roofs')} project='Roofs' img={roofs[0].url} />
+                <ProjectPortfolio openModal={()=> handleOpenModal('hardscaping_landscaping')} project='Hardscpaing & Landscaping' img={hardscaping_landscaping[0].url} />
+                <ProjectPortfolio openModal={()=> handleOpenModal('roofs')} project='Roofing & Insulation' img={roofs[0].url} />
+                <ProjectPortfolio openModal={()=> handleOpenModal('paint')} project='Exterior & Interior paint' img={paint[0].url}  />
+                {/* <ProjectPortfolio openModal={()=> handleOpenModal('fencing')} project='Fencing' img={windows[0].url} /> */}
+                {/* <ProjectPortfolio openModal={()=> handleOpenModal('flooring')} project='Flooring' img={windows[0].url} /> */}
                 <ProjectPortfolio openModal={()=> handleOpenModal('windows')} project='Windows' img={windows[0].url} />
-                <ProjectPortfolio openModal={()=> handleOpenModal('paint')} project='Paint' img={paint[0].url}  />
-                <ProjectPortfolio openModal={()=> handleOpenModal('backyard')} project='Backyard' img={backyard[0].url}/>
                 <ProjectPortfolio openModal={()=> handleOpenModal('kitchen')} project='Kitchen' img={kitchen[0].url}  />
                 <ProjectPortfolio openModal={()=> handleOpenModal('bathrooms')} project='Bathroom' img={bathrooms[0].url} />
+                {/* <ProjectPortfolio openModal={()=> handleOpenModal('ADU')} project='ADU and custom homes' img={windows[0].url} /> */}
             </div>
             {openModal && <ProjectModal ref={modalRef} onClose={handleCloseModal} project={selectedProject}/>}
         </div>

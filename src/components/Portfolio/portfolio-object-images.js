@@ -15,15 +15,27 @@ import pool14 from '../../assets/imgs/Portfolio/hardscaping/pool14.jpg';
 import pool15 from '../../assets/imgs/Portfolio/hardscaping/pool15.jpg';
 import pool16 from '../../assets/imgs/Portfolio/hardscaping/pool16.jpg';
 
+import backyard2 from '../../assets/imgs/Portfolio/hardscaping/backyard-2.jpg';
+import backyard4 from '../../assets/imgs/Portfolio/hardscaping/backyard-4.jpg';
+import backyard5 from '../../assets/imgs/Portfolio/hardscaping/backyard-5.jpg';
+import backyard6 from '../../assets/imgs/Portfolio/hardscaping/backyard-6.jpg';
+import backyard7 from '../../assets/imgs/Portfolio/hardscaping/backyard-7.jpg';
+import backyard8 from '../../assets/imgs/Portfolio/hardscaping/backyard-8.jpg';
+
 
 import roof1 from '../../assets/imgs/Portfolio/roof/roof-1.jpg';
-import roof2 from '../../assets/imgs/Portfolio/roof/roof-2.jpg';
-import roof3 from '../../assets/imgs/Portfolio/roof/roof-3.jpg';
-import roof4 from '../../assets/imgs/Portfolio/roof/roof-4.jpg';
-import roof5 from '../../assets/imgs/Portfolio/roof/roof-5.jpg';
-import roof6 from '../../assets/imgs/Portfolio/roof/roof-6.jpg';
-import roof7 from '../../assets/imgs/Portfolio/roof/roof-7.jpg';
-import roof8 from '../../assets/imgs/Portfolio/roof/roof-8.jpg';
+import roof2 from '../../assets/imgs/Portfolio/roof/roof-3.jpg';
+import roof3 from '../../assets/imgs/Portfolio/roof/roof-4.jpg';
+import roof4 from '../../assets/imgs/Portfolio/roof/roof-5.jpg';
+import roof5 from '../../assets/imgs/Portfolio/roof/roof-6.jpg';
+import roof6 from '../../assets/imgs/Portfolio/roof/roof-7.jpg';
+import roof7 from '../../assets/imgs/Portfolio/roof/roof-8.jpg';
+import insulation1 from '../../assets/imgs/Portfolio/roof/insulation1.jpg';
+import insulation2 from '../../assets/imgs/Portfolio/roof/insulation2.jpg';
+import insulation3 from '../../assets/imgs/Portfolio/roof/insulation3.jpg';
+import insulation4 from '../../assets/imgs/Portfolio/roof/insulation4.jpg';
+
+
 
 import window1 from '../../assets/imgs/Portfolio/windows/window-1.jpg';
 import window2 from '../../assets/imgs/Portfolio/windows/window-2.jpg';
@@ -43,14 +55,7 @@ import paint6 from '../../assets/imgs/Portfolio/paint/paint-6.jpg';
 import paint7 from '../../assets/imgs/Portfolio/paint/paint-7.jpg';
 import paint8 from '../../assets/imgs/Portfolio/paint/paint-8.jpg';
 
-import backyard1 from '../../assets/imgs/Portfolio/backyard/backyard-1.jpg';
-import backyard2 from '../../assets/imgs/Portfolio/backyard/backyard-2.jpg';
-import backyard3 from '../../assets/imgs/Portfolio/backyard/backyard-3.jpg';
-import backyard4 from '../../assets/imgs/Portfolio/backyard/backyard-4.jpg';
-import backyard5 from '../../assets/imgs/Portfolio/backyard/backyard-5.jpg';
-import backyard6 from '../../assets/imgs/Portfolio/backyard/backyard-6.jpg';
-import backyard7 from '../../assets/imgs/Portfolio/backyard/backyard-7.jpg';
-import backyard8 from '../../assets/imgs/Portfolio/backyard/backyard-8.jpg';
+
 
 import kitchen1 from '../../assets/imgs/Portfolio/kitchen/kitchen-1.jpg';
 import kitchen2 from '../../assets/imgs/Portfolio/kitchen/kitchen-2.jpg';
@@ -71,7 +76,7 @@ import bathroom7 from '../../assets/imgs/Portfolio/bathroom/bathroom-7.jpg';
 import bathroom8 from '../../assets/imgs/Portfolio/bathroom/bathroom-8.jpg';
 
 
-export const pools = [
+export const hardscaping_landscaping = [
     {url: pool1, title: 'pool1'},
     {url: pool2, title: 'pool2'},
     {url: pool3, title: 'pool3'},
@@ -87,18 +92,27 @@ export const pools = [
     {url: pool13, title: 'pool13'},
     {url: pool14, title: 'pool14'},
     {url: pool15, title: 'pool15'},
-    {url: pool16, title: 'pool16'}
+    {url: pool16, title: 'pool16'},
+    {url: backyard2, title: 'backyard2'},
+    {url: backyard4, title: 'backyard4'},
+    {url: backyard5, title: 'backyard5'},
+    {url: backyard6, title: 'backyard6'},
+    {url: backyard7, title: 'backyard7'},
+    {url: backyard8, title: 'backyard8'},
 ]
 
 export const roofs = [
     {url: roof1, title: 'house-roof1'},
-    {url: roof2, title: 'house-roof2'},
-    {url: roof3, title: 'house-roof3'},
-    {url: roof4, title: 'house-roof4'},
-    {url: roof5, title: 'house-roof5'},
-    {url: roof6, title: 'house-roof6'},
-    {url: roof7, title: 'house-roof7'},
-    {url: roof8, title: 'house-roof8'},
+    {url: roof2, title: 'house-roof3'},
+    {url: roof3, title: 'house-roof4'},
+    {url: roof4, title: 'house-roof5'},
+    {url: roof5, title: 'house-roof6'},
+    {url: roof6, title: 'house-roof7'},
+    {url: roof7, title: 'house-roof8'},
+    {url: insulation1, title: 'insulation1'},
+    {url: insulation2, title: 'insulation2'},
+    {url: insulation3, title: 'insulation3'},
+    {url: insulation4, title: 'insulation4'},
 ]
 
 export const windows = [
@@ -123,16 +137,6 @@ export const paint = [
     {url: paint8, title: 'paint8'},
 ]
 
-export const backyard = [
-    {url: backyard1, title: 'backyard1'},
-    {url: backyard2, title: 'backyard2'},
-    {url: backyard3, title: 'backyard3'},
-    {url: backyard4, title: 'backyard4'},
-    {url: backyard5, title: 'backyard5'},
-    {url: backyard6, title: 'backyard6'},
-    {url: backyard7, title: 'backyard7'},
-    {url: backyard8, title: 'backyard8'},
-]
 
 
 export const kitchen = [

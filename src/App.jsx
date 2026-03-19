@@ -6,8 +6,12 @@ import { TfiHome } from "react-icons/tfi";
 import { FaPhoneAlt } from "react-icons/fa";
 
 // images
-import landscape from './assets/imgs/landscaping.jpeg';
 import hardscaping from './assets/imgs/hardscaping.jpeg';
+import roofing_insulation from './assets/imgs/roofing_insulation.jpg';
+import fencing from './assets/imgs/fencing.jpg';
+import flooring from './assets/imgs/flooring.jpg';
+import windows from './assets/imgs/windows.jpg';
+import ADU from './assets/imgs/ADU_customHomes.jpg';
 import kitchen from './assets/imgs/kitchen1.jpeg';
 import bathroom from './assets/imgs/bathroom.jpg';
 import paint from './assets/imgs/paint.jpg';
@@ -59,17 +63,21 @@ function App() {
                                     <h3>REMODELING</h3>
                                 </div>
                                 <div className="information-wrapper">
-                                    <About aboutRef={aboutRef} />
                                     <div className="what-we-do-wrapper" ref={servicesRef}>
                                         <h1>Our Main Services</h1>
                                         <div className="what-we-do-services">
-                                            <WhatWeDo img={landscape} alt="landscaping" service="Landscaping" />
-                                            <WhatWeDo img={hardscaping} alt="hardscaping" service="Hardscaping" />
+                                            <WhatWeDo img={hardscaping} alt="hardscaping" service="Hardscaping & Landscaping" />
+                                            <WhatWeDo img={roofing_insulation} alt="roofing & insulation" service="Roofing & Insulation" />
+                                            <WhatWeDo img={paint} alt="paint" service="Exterior & Interior Paint" />
+                                            <WhatWeDo img={fencing} alt="fencing" service="Fencing" />
+                                            <WhatWeDo img={flooring} alt="flooring" service="Flooring" />
+                                            <WhatWeDo img={windows} alt="windows" service="Windows" />
                                             <WhatWeDo img={kitchen} alt="kitchen" service="Kitchen" />
                                             <WhatWeDo img={bathroom} alt="Bathroom" service="Bathroom" />
-                                            <WhatWeDo img={paint} alt="paint" service="Interior / Exterior Paint" />
+                                            <WhatWeDo img={ADU} alt="ADU" service="ADU and custom homes" />
                                         </div>
                                     </div>
+                                    <About aboutRef={aboutRef} />
                                     <h4>Our Projects</h4>
                                     <ImageSlider />
                                     <div className="call-us-now">
