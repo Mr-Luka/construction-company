@@ -1,148 +1,190 @@
 import './Free-Estimate.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import SubmittedFormModal from './Submitted-form-modal.jsx';
 
 export default function FreeEstimate() {
-    const dialog = useRef();
-    const timer = useRef(null);
+  const dialog = useRef();
+  const timer = useRef(null);
 
-    const [submissionSuccess, setSubmissionSuccess] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-    const [ formData, setFormData ] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        zipCode: '',
-        message: ''
-    })
-    const [ errors, setErrors] = useState({
-        name: false,
-        phone: false,
-        email: false,
-        zipCode: false,
-    })
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    zipCode: '',
+    message: ''
+  });
 
+  const [errors, setErrors] = useState({
+    name: false,
+    phone: false,
+    email: false,
+    zipCode: false,
+  });
 
-    function handleSubmit(e) {
-        e.preventDefault(); // Prevents the default form submission behavior (page reload)
-        setSubmitted(true); // Sets the submitted state to true, indicating the form has been submitted
-        const newErrors = validateForm(); // Calls validateForm to get the current errors
-        setErrors(newErrors); // Updates the errors state with the new errors from validateForm
+  function handleChange(e) {
+    const { name, value } = e.target;
 
-        if (Object.values(newErrors).some(error => error)) { // Checks if there are any errors
-            return; // If there are errors, the function exits early, preventing form submission
-        }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+
+    if (submitted) {
+      setErrors((newError) => ({ ...newError, [name]: false }));
+      setSubmitted(false);
+    }
+  }
+
+  function validateForm() {
+    return {
+      name: !formData.name.trim(),
+      phone: !/^\d{10}$/.test(formData.phone.replace(/\D/g, '')),
+      email: !/\S+@\S+\.\S+/.test(formData.email),
+      zipCode: !/^\d{5}$/.test(formData.zipCode)
+    };
+  }
+
+  function closeModalTimer() {
+    if (timer.current) {
+      clearTimeout(timer.current);
+    }
+
+    timer.current = setTimeout(() => {
+      if (dialog.current) {
+        dialog.current.close();
+        setSubmissionSuccess(false);
+      }
+    }, 6000);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+
+    const newErrors = validateForm();
+    setErrors(newErrors);
+
+    if (Object.values(newErrors).some((error) => error)) {
+      return;
+    }
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/neighborhoodremodelinginc@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          zipCode: formData.zipCode,
+          message: formData.message,
+          _subject: 'New Free Estimate Request - Neighborhood Remodeling'
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success === 'true' || result.success === true) {
         setSubmissionSuccess(true);
 
-        setTimeout(() => { // Delay to ensure state update
-            dialog.current.open();
-            closeModalTimer();
-
+        setTimeout(() => {
+          dialog.current.open();
+          closeModalTimer();
         }, 0);
 
-
-        console.log(formData); // If no errors, logs the form data to the console
-    }
-
-    function handleChange(e) {
-        const { name, value } = e.target; // Extracts the name and value of the changed input
-        setFormData(prevData => { // Updates the form data state
-            return {
-                ...prevData,
-                [name]: value
-            }
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          zipCode: '',
+          message: ''
         });
-        if (submitted) { // Checks if the form has been submitted
-            setErrors(newError => ({ ...newError, [name]: false })); // Clears the error for the changed input
-            setSubmitted(false); //resets the submitted state, allowing for the errors to be shown again on the next submit.
-        }
-    }
 
-    function closeModalTimer() {
-        if (timer.current) {
-            clearTimeout(timer.current);
-        }
-        timer.current = setTimeout(() => {
-            if (dialog.current) {
-                dialog.current.close();
-                setSubmissionSuccess(false);
-            }
-        }, 6000);
+        setSubmitted(false);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Something went wrong. Please try again.');
     }
-
-
-    function validateForm(){
-        const newErrors ={
-            name: !formData.name,
-            phone: !/^\d{10}$/.test(formData.phone),
-            email: !/\S+@\S+\.\S+/.test(formData.email),
-            zipCode:!/^\d{5}$/.test(formData.zipCode)
-        }
-        return newErrors;
-    }
+  }
 
   return (
     <>
-        <div className='free-estimate-wrapper'>
-            {submissionSuccess && <SubmittedFormModal ref={dialog} name={formData.name} timer={timer}/>}
-            <div className='free-estimate-title'>
-                <h1>Get a Free Estimate</h1>
-            </div>
-            <p className='estimate-text'>Elevate your Southern California lifestyle with a home renovation designed exclusively for you. Detail your vision – every design preference, every spatial need – and we'll curate a luxurious, bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.</p>
-            <div className='intake-form'>
-                <input
-                    type='text'
-                    required
-                    placeholder='Name*'
-                    name='name'
-                    onChange={handleChange}
-                    value={formData.name}
-                    className={submitted && errors.name ? 'invalid-form' : ''}
+      <div className='free-estimate-wrapper'>
+        {submissionSuccess && (
+          <SubmittedFormModal ref={dialog} name={formData.name || 'there'} timer={timer} />
+        )}
 
-                />
-                <input
-                    type='tel'
-                    required
-                    placeholder='Phone*'
-                    name='phone'
-                    onChange={handleChange}
-                    value={formData.phone}
-                    className={submitted && errors.phone ? 'invalid-form' : ''}
-
-                />
-                <input
-                    type='email'
-                    required
-                    placeholder='Email*'
-                    name='email'
-                    onChange={handleChange}
-                    value={formData.email}
-                    className={submitted && errors.email ? 'invalid-form' : ''}
-
-                />
-                <input
-                    type='number'
-                    required
-                    placeholder='Zip Code*'
-                    name='zipCode'
-                    onChange={handleChange}
-                    value={formData.zipCode}
-                    className={submitted && errors.zipCode ? 'invalid-form' : ''}
-
-                />
-                <textarea
-                    type='text'
-                    required
-                    placeholder='Message'
-                    name='message'
-                    onChange={handleChange}
-                    value={formData.message}
-
-
-                />
-            </div>
-            <button className='submit-estimate-request' onClick={handleSubmit}>Submit</button>
+        <div className='free-estimate-title'>
+          <h1>Get a Free Estimate</h1>
         </div>
+
+        <p className='estimate-text'>
+          Elevate your Southern California lifestyle with a home renovation designed exclusively for you.
+          Detail your vision – every design preference, every spatial need – and we'll curate a luxurious,
+          bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.
+        </p>
+
+        <form className='intake-form' onSubmit={handleSubmit}>
+          <input
+            type='text'
+            required
+            placeholder='Name*'
+            name='name'
+            onChange={handleChange}
+            value={formData.name}
+            className={submitted && errors.name ? 'invalid-form' : ''}
+          />
+
+          <input
+            type='tel'
+            required
+            placeholder='Phone*'
+            name='phone'
+            onChange={handleChange}
+            value={formData.phone}
+            className={submitted && errors.phone ? 'invalid-form' : ''}
+          />
+
+          <input
+            type='email'
+            required
+            placeholder='Email*'
+            name='email'
+            onChange={handleChange}
+            value={formData.email}
+            className={submitted && errors.email ? 'invalid-form' : ''}
+          />
+
+          <input
+            type='text'
+            required
+            placeholder='Zip Code*'
+            name='zipCode'
+            onChange={handleChange}
+            value={formData.zipCode}
+            className={submitted && errors.zipCode ? 'invalid-form' : ''}
+          />
+
+          <textarea
+            placeholder='Message'
+            name='message'
+            onChange={handleChange}
+            value={formData.message}
+          />
+
+          <button type="submit" className='submit-estimate-request'>
+            Submit
+          </button>
+        </form>
+      </div>
     </>
-    );
+  );
 }

@@ -26,34 +26,35 @@
 }
 
 .intake-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .intake-form input,
-.intake-form textarea{
-    width: 90%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.184);
-    margin-bottom: 1.3rem;
+.intake-form textarea {
+  width: 90%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.184);
+  margin-bottom: 1.3rem;
 }
 
-.intake-form textarea[name="message"]{
+.intake-form textarea[name="message"] {
   padding-bottom: 5rem;
 }
 
 .submit-estimate-request {
-    background-color: rgba(7, 116, 27, 0.809);
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.3rem;
-    font-weight: 600;
+  background-color: rgba(7, 116, 27, 0.809);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 .submit-estimate-request:hover {
