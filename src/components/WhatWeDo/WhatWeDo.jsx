@@ -15,7 +15,6 @@ export default function WhatWeDo({ img, service, alt, projectKey }) {
         <div className="service-card-overlay" />
         <div className="service-card-content">
           <h5 className="service-card-title">{service}</h5>
-          <span className="service-card-arrow">↗</span>
         </div>
       </div>
     </article>

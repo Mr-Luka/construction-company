@@ -1,13 +1,14 @@
 import './Free-Estimate.css';
-import { useState, useRef } from 'react';
-import SubmittedFormModal from './Submitted-form-modal.jsx';
+import { useState } from 'react';
 
 export default function FreeEstimate() {
-  const dialog = useRef();
-  const timer = useRef(null);
-
-  const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState({
+    type: '',
+    message: ''
+  });
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -32,8 +33,11 @@ export default function FreeEstimate() {
     }));
 
     if (submitted) {
-      setErrors((newError) => ({ ...newError, [name]: false }));
-      setSubmitted(false);
+      setErrors((prev) => ({ ...prev, [name]: false }));
+    }
+
+    if (status.message) {
+      setStatus({ type: '', message: '' });
     }
   }
 
@@ -46,29 +50,30 @@ export default function FreeEstimate() {
     };
   }
 
-  function closeModalTimer() {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
-
-    timer.current = setTimeout(() => {
-      if (dialog.current) {
-        dialog.current.close();
-        setSubmissionSuccess(false);
-      }
-    }, 6000);
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
 
     const newErrors = validateForm();
     setErrors(newErrors);
+    setSubmitted(true);
+    setStatus({ type: '', message: '' });
 
     if (Object.values(newErrors).some((error) => error)) {
       return;
     }
+
+    setIsSending(true);
+
+    const payload = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      zipCode: formData.zipCode,
+      message: formData.message,
+      _subject: 'New Free Estimate Request - Neighborhood Remodeling',
+      _captcha: 'false',
+      _template: 'table',
+    };
 
     try {
       const response = await fetch('https://formsubmit.co/ajax/neighborhoodremodelinginc@gmail.com', {
@@ -77,25 +82,17 @@ export default function FreeEstimate() {
           'Content-Type': 'application/json',
           Accept: 'application/json'
         },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          zipCode: formData.zipCode,
-          message: formData.message,
-          _subject: 'New Free Estimate Request - Neighborhood Remodeling'
-        })
+        body: JSON.stringify(payload)
       });
 
       const result = await response.json();
+      console.log('Form result:', result);
 
-      if (result.success === 'true' || result.success === true) {
-        setSubmissionSuccess(true);
-
-        setTimeout(() => {
-          dialog.current.open();
-          closeModalTimer();
-        }, 0);
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you! Your request has been sent successfully.'
+        });
 
         setFormData({
           name: '',
@@ -106,85 +103,99 @@ export default function FreeEstimate() {
         });
 
         setSubmitted(false);
+        setErrors({
+          name: false,
+          phone: false,
+          email: false,
+          zipCode: false,
+        });
       } else {
-        alert('Something went wrong. Please try again.');
+        setStatus({
+          type: 'error',
+          message: result.message || 'Something went wrong. Please try again.'
+        });
       }
     } catch (error) {
-      console.error(error);
-      alert('Something went wrong. Please try again.');
+      console.error('Form submit error:', error);
+      setStatus({
+        type: 'error',
+        message: 'Something went wrong. Please try again.'
+      });
+    } finally {
+      setIsSending(false);
     }
   }
 
   return (
-    <>
-      <div className='free-estimate-wrapper'>
-        {submissionSuccess && (
-          <SubmittedFormModal ref={dialog} name={formData.name || 'there'} timer={timer} />
-        )}
-
-        <div className='free-estimate-title'>
-          <h1>Get a Free Estimate</h1>
-        </div>
-
-        <p className='estimate-text'>
-          Elevate your Southern California lifestyle with a home renovation designed exclusively for you.
-          Detail your vision – every design preference, every spatial need – and we'll curate a luxurious,
-          bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.
-        </p>
-
-        <form className='intake-form' onSubmit={handleSubmit}>
-          <input
-            type='text'
-            required
-            placeholder='Name*'
-            name='name'
-            onChange={handleChange}
-            value={formData.name}
-            className={submitted && errors.name ? 'invalid-form' : ''}
-          />
-
-          <input
-            type='tel'
-            required
-            placeholder='Phone*'
-            name='phone'
-            onChange={handleChange}
-            value={formData.phone}
-            className={submitted && errors.phone ? 'invalid-form' : ''}
-          />
-
-          <input
-            type='email'
-            required
-            placeholder='Email*'
-            name='email'
-            onChange={handleChange}
-            value={formData.email}
-            className={submitted && errors.email ? 'invalid-form' : ''}
-          />
-
-          <input
-            type='text'
-            required
-            placeholder='Zip Code*'
-            name='zipCode'
-            onChange={handleChange}
-            value={formData.zipCode}
-            className={submitted && errors.zipCode ? 'invalid-form' : ''}
-          />
-
-          <textarea
-            placeholder='Message'
-            name='message'
-            onChange={handleChange}
-            value={formData.message}
-          />
-
-          <button type="submit" className='submit-estimate-request'>
-            Submit
-          </button>
-        </form>
+    <div className='free-estimate-wrapper'>
+      <div className='free-estimate-title'>
+        <h1>Get a Free Estimate</h1>
       </div>
-    </>
+
+      <p className='estimate-text'>
+        Elevate your Southern California lifestyle with a home renovation designed exclusively for you.
+        Detail your vision – every design preference, every spatial need – and we'll curate a luxurious,
+        bespoke solution that seamlessly integrates with your discerning taste and sophisticated lifestyle.
+      </p>
+
+      <form className='intake-form' onSubmit={handleSubmit}>
+        <input
+          type='text'
+          placeholder='Name*'
+          name='name'
+          onChange={handleChange}
+          value={formData.name}
+          className={submitted && errors.name ? 'invalid-form' : ''}
+        />
+
+        <input
+          type='tel'
+          placeholder='Phone*'
+          name='phone'
+          onChange={handleChange}
+          value={formData.phone}
+          className={submitted && errors.phone ? 'invalid-form' : ''}
+        />
+
+        <input
+          type='email'
+          placeholder='Email*'
+          name='email'
+          onChange={handleChange}
+          value={formData.email}
+          className={submitted && errors.email ? 'invalid-form' : ''}
+        />
+
+        <input
+          type='text'
+          placeholder='Zip Code*'
+          name='zipCode'
+          onChange={handleChange}
+          value={formData.zipCode}
+          className={submitted && errors.zipCode ? 'invalid-form' : ''}
+        />
+
+        <textarea
+          placeholder='Message'
+          name='message'
+          onChange={handleChange}
+          value={formData.message}
+        />
+
+        <button
+          type="submit"
+          className='submit-estimate-request'
+          disabled={isSending}
+        >
+          {isSending ? 'Sending...' : 'Submit'}
+        </button>
+
+        {status.message && (
+          <p className={`form-status ${status.type}`}>
+            {status.message}
+          </p>
+        )}
+      </form>
+    </div>
   );
 }
