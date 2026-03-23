@@ -1,92 +1,162 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaBarsStaggered } from 'react-icons/fa6';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaBarsStaggered, FaXmark, FaChevronRight, FaChevronDown } from 'react-icons/fa6';
 import { TfiHome } from 'react-icons/tfi';
 import './NavBar.css';
 
-export default function NavBar({ contactRef, servicesRef, aboutRef, isMenuOpen, setIsMenuOpen, closeMenu }) { // Add props
-    const navigate = useNavigate();
 
-    function toggleMenu() {
-        setIsMenuOpen(!isMenuOpen);
+
+export default function NavBar({
+  contactRef,
+  servicesRef,
+  aboutRef,
+  isMenuOpen,
+  setIsMenuOpen,
+}) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  }, [location.pathname, setIsMenuOpen]);
+
+  function toggleMenu() {
+    setIsMenuOpen((prev) => !prev);
+  }
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  }
+
+  function goHome() {
+    navigate('/');
+    closeMenu();
+
+    if (location.pathname === '/') {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 50);
     }
+  }
 
-    function handleHomeClick() {
-        if(location.pathname === '/'){
-            //if already on home page, refresh
-            window.location.reload();
-        } else {
-            // if on another page, navigate to home 
-            navigate('/');
-        }
-        setIsMenuOpen(false);
-    }
+  function scrollToRef(ref) {
+    navigate('/');
+    closeMenu();
 
-    function handleContactClick() {
-        navigate('/');
-        setTimeout(() => {
-            if (contactRef.current) {
-                contactRef.current.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
-        setIsMenuOpen(false);
-    }
+    setTimeout(() => {
+      if (ref?.current) {
+        ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 150);
+  }
 
-    function handleServicesClick() {
-        navigate('/');
-        setTimeout(() => {
-            if (servicesRef.current) {
-                servicesRef.current.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
-        setIsMenuOpen(false);
-    }
+  function openPortfolioCategory(projectKey) {
+    navigate(`/portfolio?project=${projectKey}`);
+    closeMenu();
+  }
 
-    function handleAboutUsClick() {
-        navigate('/');
-        setTimeout(() => {
-            if (aboutRef.current) {
-                aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, 100);
-        setIsMenuOpen(false);
-    }
+  return (
+    <>
+      <header>
+        <div className="navBar-container">
+          <nav>
+            <button className="logo" onClick={goHome} aria-label="Go to home">
+                <TfiHome size="1.35rem" />
+            </button>
+            <div className="nav-center-text">
+                <h3>Contractor: Bojana Vujosevic</h3>
+                <p>License # 1107770</p>
+            </div>
+            <button
+                className="sideBar-icon"
+                onClick={toggleMenu}
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMenuOpen}
+            >
+                {isMenuOpen ? <FaXmark /> : <FaBarsStaggered />}
+            </button>
+            </nav>
+        </div>
+      </header>
 
-    return (
-        <>
-            <header>
-                <div className="navBar-container">
-                    <nav>
-                        <div className="logo">
-                            <h2>
-                                <TfiHome size="1.5rem" onClick={handleHomeClick}/>
-                            </h2>
-                        </div>
-                        <ul className={isMenuOpen ? 'nav-link active' : 'nav-link'}>
-                            <li>
-                                <a onClick={handleHomeClick}>
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a onClick={handleAboutUsClick}>About</a>
-                            </li>
-                            <li>
-                                <a onClick={handleServicesClick}>Services</a>
-                            </li>
-                            <li>
-                                <Link to='/portfolio' onClick={closeMenu}>Portfolio</Link> {/* Close menu on click */}
-                            </li>
-                            <li>
-                                <a onClick={handleContactClick}>Contact Us</a>
-                            </li>
-                        </ul>
-                        <div className="sideBar-icon" onClick={toggleMenu}>
-                            <FaBarsStaggered color="white" />
-                        </div>
-                    </nav>
-                </div>
-            </header>
-        </>
-    );
+      <div
+        className={`mobile-menu-overlay ${isMenuOpen ? 'active' : ''}`}
+        onClick={closeMenu}
+      />
+
+      <aside className={`mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
+        <div className="drawer-top">
+          <button className="drawer-logo" onClick={goHome}>
+            <TfiHome />
+            <span>Neighborhood Remodeling</span>
+          </button>
+
+          <button className="drawer-close" onClick={closeMenu} aria-label="Close menu">
+            <FaXmark />
+          </button>
+        </div>
+
+        <ul className="drawer-links">
+          <li>
+            <button onClick={goHome}>Home</button>
+          </li>
+
+          <li className="has-submenu">
+            <button
+              className="submenu-trigger"
+              onClick={() => setIsServicesOpen((prev) => !prev)}
+              aria-expanded={isServicesOpen}
+            >
+              <span>Services</span>
+              {isServicesOpen ? <FaChevronDown /> : <FaChevronRight />}
+            </button>
+
+            <div className={`submenu ${isServicesOpen ? 'open' : ''}`}>
+              <button onClick={() => scrollToRef(servicesRef)}>All Services</button>
+              <button onClick={() => openPortfolioCategory('hardscaping_landscaping')}>
+                Hardscaping & Landscaping
+              </button>
+              <button onClick={() => openPortfolioCategory('roofs')}>
+                Roofing & Insulation
+              </button>
+              <button onClick={() => openPortfolioCategory('paint')}>
+                Exterior & Interior Paint
+              </button>
+              <button onClick={() => openPortfolioCategory('windows')}>
+                Windows
+              </button>
+              <button onClick={() => openPortfolioCategory('kitchen')}>
+                Kitchen
+              </button>
+              <button onClick={() => openPortfolioCategory('bathrooms')}>
+                Bathroom
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <button onClick={() => scrollToRef(aboutRef)}>About Us</button>
+          </li>
+
+          <li>
+            <Link to="/portfolio" onClick={closeMenu}>Portfolio</Link>
+          </li>
+
+          <li>
+            <button onClick={() => scrollToRef(contactRef)}>Contact Us</button>
+          </li>
+        </ul>
+      </aside>
+    </>
+  );
 }

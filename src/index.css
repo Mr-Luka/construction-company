@@ -94,10 +94,10 @@ a {
 }
 
 .information-wrapper{
-  background-color: rgba(225, 224, 223, 0.667);
-  width: 95%;
+  background-color: rgba(255, 255, 255, 0.921);
+  width: 100%;
   margin: 1rem 0 5rem 0;
-  border-radius: 20px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,15 +116,20 @@ a {
   font-weight: 600;
 }
 
-.what-we-do-wrapper{
-    width: 90%;
-    text-align: center;
+.what-we-do-wrapper {
+  width: 90%;
+  text-align: center;
 }
 
 .what-we-do-wrapper h1 {
-    color: white;
-    margin: 2rem 0 2rem 0;
-    text-shadow: 1px 1px 2px black;
+  color: rgb(0, 0, 0);
+  margin: 2rem 0 2rem 0;
+}
+
+.what-we-do-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .call-us-now {
@@ -133,11 +138,17 @@ a {
   border: 5px solid rgb(250, 250, 250);
   padding: 1rem 2rem;
   border-radius: 10px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
-.call-us-now h5{
+
+.call-us-now h5 {
   text-align: center;
   font-size: 1.4rem;
 }
+
 .call-us-now span {
   font-size: 1.6rem;
   color: red;
@@ -156,11 +167,13 @@ a {
   left: 0;
   width: 100%;
   z-index: 100;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .call-us-absolute svg {
   font-size: 1.8rem;
-  margin-right: 1rem
+  margin-right: 1rem;
 }
 
 .absolute-phone-number h6 {
@@ -226,26 +239,30 @@ a {
     }
 
     .what-we-do-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around; 
-    }
-    .what-we-do-wrapper h1{
-      font-size: 3rem;
-    }
+    width: 100%;
+  }
+
+  .what-we-do-wrapper h1 {
+    font-size: 3rem;
+  }
+
+  .what-we-do-services {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
 
   .call-us-now {
     margin-top: 5rem;
     border: 5px solid rgb(250, 250, 250);
     padding: 3rem 5rem;
     border-radius: 10px;
-}
-.call-us-now h5{
-  font-size: 2.5rem;
-}
-.call-us-now span {
-  font-size: 3rem;
-}
+  }
+
+  .call-us-now h5 {
+    font-size: 2.5rem;
+  }
+
+  .call-us-now span {
+    font-size: 3rem;
+  }
 }

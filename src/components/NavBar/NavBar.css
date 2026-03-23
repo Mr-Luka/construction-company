@@ -1,138 +1,239 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 header {
-  background: rgba(255, 255, 255, 0);
-  box-shadow: 0 0 5px black;
-  padding: 1rem 0;
-  position: relative;
-  z-index: 2;
-  font-family: "Montserrat", sans-serif;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  padding: 0.9rem 0;
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
   width: 100%;
-
+  font-family: "Montserrat", sans-serif;
 }
 
-
-
 .navBar-container {
-  max-width: 768px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
-}
-
-.navBar-container .nav-link {
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-  padding: 0.3rem 0;
-  background-color: rgba(255, 255, 255, 0.399);
-  border-bottom-left-radius: 80px 80px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.382);
-  position: absolute;
-  width: 100px;
-  height: 29vh;
-  top: 47px;
-  right: 0;
-  z-index: 10;
-  display: none;
 }
 
 .navBar-container nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  min-height: 56px;
 }
 
-.navBar-container h2 {
-  color: white;
-  font-size: 1rem;
+.logo,
+.sideBar-icon,
+.drawer-close,
+.drawer-logo,
+.drawer-links button {
+  appearance: none;
+  border: none;
+  background: transparent;
   cursor: pointer;
+  font-family: inherit;
 }
 
-
-.navBar-container .nav-link li {
-  list-style: none;
-  margin: 0 0.5rem;
-}
-
-.navBar-container ul li a {
-  color: rgb(4, 1, 1);
-  font-weight: 600;
-  font-size: 0.7rem;
-  padding: 0.5rem 0.7rem;
-  display: block;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.navBar-container ul li a:hover,
-.navBar-container ul li a.active {
-  background-color: rgba(249, 249, 249, 0.093);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
+.logo,
 .sideBar-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo svg {
-  color: green;
+  color: #039935;
 }
 
-/* Show when active */
-.nav-link.active {
-  display: block;
+.sideBar-icon {
+  color: #ffffff;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.nav-center-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  color: white;
+  line-height: 1.05;
+  width: max-content;
+  max-width: calc(100% - 120px);
+  pointer-events: none;
+}
 
-@media (max-width: 767px){
-  .navBar-container .nav-link {
-      height: 25vh;
-      border-bottom-left-radius: 25px;
+.nav-center-text h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.nav-center-text p {
+  margin: 0.15rem 0 0 0;
+  font-size: 0.82rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+  z-index: 1190;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(82vw, 340px);
+  height: 100vh;
+  background: #ffffff;
+  z-index: 1195;
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+  box-shadow: 10px 0 28px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1rem 0.8rem;
+  border-bottom: 1px solid #ececec;
+}
+
+.drawer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #1b1b1b;
+  font-weight: 700;
+  text-align: left;
+}
+
+.drawer-logo svg {
+  color: #039935;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.drawer-logo span {
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.drawer-close {
+  color: #1d1d1d;
+  font-size: 1.35rem;
+}
+
+.drawer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drawer-links li {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.drawer-links a,
+.drawer-links button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1rem;
+  color: #111111;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.drawer-links a:hover,
+.drawer-links button:hover {
+  background: #f7f7f7;
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+  background: #fafafa;
+}
+
+.submenu.open {
+  max-height: 500px;
+}
+
+.submenu button {
+  text-transform: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.85rem 1.2rem 0.85rem 1.8rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+@media (max-width: 480px) {
+  .nav-center-text h3 {
+    font-size: 0.78rem;
   }
 
-  .navBar-container ul li a{
-    font-size: 0.8rem;
+  .nav-center-text p {
+    font-size: 0.72rem;
   }
 }
 
-/* Desktop Styles */
 @media (min-width: 769px) {
-  .navBar-container {
-    max-width: 1440px; 
-  }
-
-  .navBar-container .nav-link {
-    position: static;
-    display: flex; 
-    flex-direction: row; 
-    background-color: transparent;
-    box-shadow: none; 
-    border-radius: 0; 
-    width: auto; 
-    height: auto; 
-    justify-content: flex-end; 
-  }
-
-  .navBar-container .nav-link li {
-    margin: 0 1rem; 
-  }
-
-  .navBar-container ul li a {
-    color: white; 
-    font-size: 1rem; 
-    text-shadow: 1px 1px 2px black;
-  }
-
   .sideBar-icon {
-    display: none; 
+    display: none;
   }
 
-  .navBar-container h2 {
-    font-size: 1.2rem; 
+  .nav-center-text p {
+    font-size: 1.5rem;
+  }
+
+  .mobile-drawer,
+  .mobile-menu-overlay {
+    display: none;
+  }
+
+  .navBar-container nav::after {
+    content: "";
   }
 }

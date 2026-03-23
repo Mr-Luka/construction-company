@@ -1,19 +1,23 @@
 import './WhatWeDo.css';
-import { Link } from 'react-router-dom'; // Import Link
+import { useNavigate } from 'react-router-dom';
 
-export default function WhatWeDo({ img, service, alt }) {
-    return (
-        <div className="what-we-do-wrapper-component">
-            <div className="what-we-do-section">
-                <img src={img} alt={alt} />
-                <h5 className="service">{service}</h5>
-                <Link to="/portfolio">
-                    <button>More Info</button>
-                </Link>
-            </div>
-            <svg className="services-line hide-on-desktop" width="100%" height="10">
-                <line x1="0" y1="5" x2="100%" y2="5" stroke="white" strokeWidth="2" />
-            </svg>
+export default function WhatWeDo({ img, service, alt, projectKey }) {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate(`/portfolio?project=${projectKey}`);
+  }
+
+  return (
+    <article className="service-card" onClick={handleClick}>
+      <div className="service-card-image-wrap">
+        <img src={img} alt={alt} />
+        <div className="service-card-overlay" />
+        <div className="service-card-content">
+          <h5 className="service-card-title">{service}</h5>
+          <span className="service-card-arrow">↗</span>
         </div>
-    );
+      </div>
+    </article>
+  );
 }

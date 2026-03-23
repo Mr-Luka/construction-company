@@ -5,6 +5,7 @@ import video from './assets/imgs/video-const.mp4';
 import { TfiHome } from "react-icons/tfi";
 import { FaPhoneAlt } from "react-icons/fa";
 
+
 // images
 import hardscaping from './assets/imgs/hardscaping.jpeg';
 import roofing_insulation from './assets/imgs/roofing_insulation.jpg';
@@ -19,7 +20,6 @@ import paint from './assets/imgs/paint.jpg';
 // components
 import NavBar from './components/NavBar/NavBar.jsx';
 import Portfolio from './components/Portfolio/Portfolio.jsx';
-import LicenseContact from './components/License-contact/LicenseContact.jsx';
 import About from './components/About/About.jsx';
 import ImageSlider from './components/Portfolio-image-slider/Portfolio-image-slider.jsx';
 import WhatWeDo from './components/WhatWeDo/WhatWeDo.jsx';
@@ -53,7 +53,6 @@ function App() {
                         setIsMenuOpen={setIsMenuOpen}
                         closeMenu={closeMenu}
                     />
-                    <LicenseContact license={1107770} email="neighborhoodremodelinginc@gmail.com" />
                     <Routes>
                         <Route path="/" element={<>
                             <main className="main-content">
@@ -64,35 +63,85 @@ function App() {
                                 </div>
                                 <div className="information-wrapper">
                                     <div className="what-we-do-wrapper" ref={servicesRef}>
-                                        <h1>Our Main Services</h1>
-                                        <div className="what-we-do-services">
-                                            <WhatWeDo img={hardscaping} alt="hardscaping" service="Hardscaping & Landscaping" />
-                                            <WhatWeDo img={roofing_insulation} alt="roofing & insulation" service="Roofing & Insulation" />
-                                            <WhatWeDo img={paint} alt="paint" service="Exterior & Interior Paint" />
-                                            <WhatWeDo img={fencing} alt="fencing" service="Fencing" />
-                                            <WhatWeDo img={flooring} alt="flooring" service="Flooring" />
-                                            <WhatWeDo img={windows} alt="windows" service="Windows" />
-                                            <WhatWeDo img={kitchen} alt="kitchen" service="Kitchen" />
-                                            <WhatWeDo img={bathroom} alt="Bathroom" service="Bathroom" />
-                                            <WhatWeDo img={ADU} alt="ADU" service="ADU and custom homes" />
-                                        </div>
-                                    </div>
+  <h1>Our Main Services</h1>
+
+  <div className="what-we-do-services">
+    <WhatWeDo
+      img={hardscaping}
+      alt="hardscaping and landscaping"
+      service="Hardscaping & Landscaping"
+      projectKey="hardscaping_landscaping"
+    />
+    <WhatWeDo
+      img={roofing_insulation}
+      alt="roofing and insulation"
+      service="Roofing & Insulation"
+      projectKey="roofs"
+    />
+    <WhatWeDo
+      img={paint}
+      alt="paint"
+      service="Exterior & Interior Paint"
+      projectKey="paint"
+    />
+    <WhatWeDo
+      img={fencing}
+      alt="fencing"
+      service="Fencing"
+      projectKey="fencing"
+    />
+    <WhatWeDo
+      img={flooring}
+      alt="flooring"
+      service="Flooring"
+      projectKey="flooring"
+    />
+    <WhatWeDo
+      img={windows}
+      alt="windows"
+      service="Windows"
+      projectKey="windows"
+    />
+    <WhatWeDo
+      img={kitchen}
+      alt="kitchen"
+      service="Kitchen Remodeling"
+      projectKey="kitchen"
+    />
+    <WhatWeDo
+      img={bathroom}
+      alt="bathroom"
+      service="Bathroom Remodeling"
+      projectKey="bathrooms"
+    />
+    <WhatWeDo
+      img={ADU}
+      alt="adu"
+      service="ADU - and custom homes"
+      projectKey="adu"
+    />
+  </div>
+</div>
                                     <About aboutRef={aboutRef} />
                                     <h4>Our Projects</h4>
                                     <ImageSlider />
-                                    <div className="call-us-now">
-                                        <h5>Call us now: <span>323-304-6498</span> For a <span>FREE ESTIMATE</span></h5>
-                                    </div>
+                                    <a className="call-us-now" href="tel:3233046498" aria-label="Call 323-304-6498">
+                                      <h5>Call us now: <span>323-304-6498</span> For a <span>FREE ESTIMATE</span></h5>
+                                    </a>
                                     <RemodelingProcess />
                                     <FreeEstimate />
                                     <Testimonials />
                                     <Footer logo={<TfiHome />} contactRef={contactRef} />
                                 </div>
                             </main>
-                            <div className="absolute-phone-number">
-                                <span className="call-us-absolute"><FaPhoneAlt /></span>
-                                <h6>Call: 323-304-6498</h6>
-                            </div>
+                            <a
+                              className="absolute-phone-number"
+                              href="tel:3233046498"
+                              aria-label="Call 323-304-6498"
+                            >
+                              <span className="call-us-absolute"><FaPhoneAlt /></span>
+                              <h6>Call: 323-304-6498</h6>
+                            </a>
                         </>} />
                         <Route path="/portfolio" element={<>
                             <Portfolio />

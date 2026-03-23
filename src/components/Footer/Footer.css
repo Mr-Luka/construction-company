@@ -74,6 +74,23 @@
     margin: 0.5rem 0;
 }
 
+.contact-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.contact-link:hover p,
+.contact-link:hover .process-icon-footer {
+  color: #07741b;
+}
+
+.socials-f a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .process-icon-footer{
     margin: 0rem 1rem 0 0;
 }
