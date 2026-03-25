@@ -107,9 +107,6 @@ a {
   margin-bottom: -3rem;
 }
 
-.logo-img:hover{
-  color: orange;
-}
 
 .information-wrapper{
   background-color: rgba(255, 255, 255, 0.921);
@@ -157,6 +154,10 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+.what-we-do-services img {
+  object-fit:fit;
 }
 
 .call-us-now {

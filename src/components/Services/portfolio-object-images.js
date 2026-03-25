@@ -74,6 +74,7 @@ import bathroom5 from '../../assets/imgs/Portfolio/bathroom/bathroom-5.jpg';
 import bathroom6 from '../../assets/imgs/Portfolio/bathroom/bathroom-6.jpg';
 import bathroom7 from '../../assets/imgs/Portfolio/bathroom/bathroom-7.jpg';
 import bathroom8 from '../../assets/imgs/Portfolio/bathroom/bathroom-8.jpg';
+import bathroom9 from '../../assets/imgs/Portfolio/bathroom/bathroom-9.jpg';
 
 
 export const hardscaping_landscaping = [
@@ -159,6 +160,7 @@ export const bathrooms = [
     {url: bathroom6, title: 'bathroom6'},
     {url: bathroom7, title: 'bathroom7'},
     {url: bathroom8, title: 'bathroom8'},
+    {url: bathroom9, title: 'bathroom9'}
 ]
 
 
