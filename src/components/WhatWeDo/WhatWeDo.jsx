@@ -1,15 +1,19 @@
 import './WhatWeDo.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function WhatWeDo({ img, service, alt, projectKey }) {
+export default function WhatWeDo({ img, service, alt, serviceSlug, index = 0 }) {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`/portfolio?project=${projectKey}`);
+    navigate(`/services/${serviceSlug}`);
   }
 
   return (
-    <article className="service-card" onClick={handleClick}>
+    <article
+      className="service-card"
+      onClick={handleClick}
+      style={{ animationDelay: `${index * 110}ms` }}
+    >
       <div className="service-card-image-wrap">
         <img src={img} alt={alt} />
         <div className="service-card-overlay" />

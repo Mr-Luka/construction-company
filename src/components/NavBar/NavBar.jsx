@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaBarsStaggered, FaXmark, FaChevronRight, FaChevronDown } from 'react-icons/fa6';
-import { TfiHome } from 'react-icons/tfi';
+import logo from '../../assets/imgs/logo-house.png';
 import './NavBar.css';
-
 
 
 export default function NavBar({
@@ -60,8 +59,8 @@ export default function NavBar({
     }, 150);
   }
 
-  function openPortfolioCategory(projectKey) {
-    navigate(`/portfolio?project=${projectKey}`);
+  function openService(serviceSlug) {
+    navigate(`/services/${serviceSlug}`);
     closeMenu();
   }
 
@@ -71,21 +70,21 @@ export default function NavBar({
         <div className="navBar-container">
           <nav>
             <button className="logo" onClick={goHome} aria-label="Go to home">
-                <TfiHome size="1.35rem" />
+                <img src={logo} alt="Neighborhood Remodeling" className="logo-img1" />
             </button>
             <div className="nav-center-text">
-                <h3>Contractor: Bojana Vujosevic</h3>
-                <p>License # 1107770</p>
+              <h3>Contractor: Bojana Vujosevic</h3>
+              <p>License # 1107770</p>
             </div>
             <button
-                className="sideBar-icon"
-                onClick={toggleMenu}
-                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-                aria-expanded={isMenuOpen}
+              className="sideBar-icon"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
             >
-                {isMenuOpen ? <FaXmark /> : <FaBarsStaggered />}
+              {isMenuOpen ? <FaXmark /> : <FaBarsStaggered />}
             </button>
-            </nav>
+          </nav>
         </div>
       </header>
 
@@ -96,14 +95,6 @@ export default function NavBar({
 
       <aside className={`mobile-drawer ${isMenuOpen ? 'open' : ''}`}>
         <div className="drawer-top">
-          <button className="drawer-logo" onClick={goHome}>
-            <TfiHome />
-            <span>Neighborhood Remodeling</span>
-          </button>
-
-          <button className="drawer-close" onClick={closeMenu} aria-label="Close menu">
-            <FaXmark />
-          </button>
         </div>
 
         <ul className="drawer-links">
@@ -123,33 +114,38 @@ export default function NavBar({
 
             <div className={`submenu ${isServicesOpen ? 'open' : ''}`}>
               <button onClick={() => scrollToRef(servicesRef)}>All Services</button>
-              <button onClick={() => openPortfolioCategory('hardscaping_landscaping')}>
+              <button onClick={() => openService('hardscaping-landscaping')}>
                 Hardscaping & Landscaping
               </button>
-              <button onClick={() => openPortfolioCategory('roofs')}>
+              <button onClick={() => openService('roofing-insulation')}>
                 Roofing & Insulation
               </button>
-              <button onClick={() => openPortfolioCategory('paint')}>
+              <button onClick={() => openService('exterior-interior-paint')}>
                 Exterior & Interior Paint
               </button>
-              <button onClick={() => openPortfolioCategory('windows')}>
+              <button onClick={() => openService('fencing')}>
+                Fencing
+              </button>
+              <button onClick={() => openService('flooring')}>
+                Flooring
+              </button>
+              <button onClick={() => openService('windows')}>
                 Windows
               </button>
-              <button onClick={() => openPortfolioCategory('kitchen')}>
-                Kitchen
+              <button onClick={() => openService('kitchen-remodeling')}>
+                Kitchen Remodeling
               </button>
-              <button onClick={() => openPortfolioCategory('bathrooms')}>
-                Bathroom
+              <button onClick={() => openService('bathroom-remodeling')}>
+                Bathroom Remodeling
+              </button>
+              <button onClick={() => openService('adu-custom-homes')}>
+                ADU & Custom Homes
               </button>
             </div>
           </li>
 
           <li>
             <button onClick={() => scrollToRef(aboutRef)}>About Us</button>
-          </li>
-
-          <li>
-            <Link to="/portfolio" onClick={closeMenu}>Portfolio</Link>
           </li>
 
           <li>

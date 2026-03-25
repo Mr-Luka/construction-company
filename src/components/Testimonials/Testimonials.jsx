@@ -99,7 +99,7 @@ export default function Testemonials (){
                         professionRow={testimonialData[9].profession}
                     />
                     <TestimonialsRow 
-                        imageRatingRow={ratings[4].twoAndHalfStars}
+                        imageRatingRow={ratings[2].fourAndHalfStars}
                         textRow={testimonialData[10].text}
                         imgFaceRow={testimonialData[10].image}
                         nameRow={testimonialData[10].name}

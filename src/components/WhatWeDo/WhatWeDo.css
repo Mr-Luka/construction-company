@@ -4,6 +4,15 @@
   margin-bottom: 1rem;
 }
 
+.service-card {
+  opacity: 0;
+  transform: translate3d(90px, 0, 0);
+}
+
+.what-we-do-wrapper.is-visible .service-card {
+  animation: serviceSlideIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 .service-card-image-wrap {
   position: relative;
   overflow: hidden;
@@ -74,5 +83,27 @@
 
   .service-card-title {
     font-size: 1.15rem;
+  }
+}
+
+@keyframes serviceSlideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(90px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .what-we-do-wrapper-title {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+    transition: none !important;
   }
 }

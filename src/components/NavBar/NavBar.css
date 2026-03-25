@@ -13,6 +13,13 @@ header {
   font-family: "Montserrat", sans-serif;
 }
 
+.logo-img1 {
+  width: 100px; /* adjust */
+  object-fit: contain;
+  margin: -1.5rem 0rem -2rem 0;
+  padding: 0;
+}
+
 .navBar-container {
   max-width: 1440px;
   width: 100%;
@@ -112,6 +119,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  padding-top: 3.5rem;
   width: min(82vw, 340px);
   height: 100vh;
   background: #ffffff;

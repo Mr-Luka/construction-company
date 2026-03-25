@@ -36,6 +36,7 @@ a {
   background-color: rgba(60, 60, 60, 0.445);
 }
 
+.hero-fallback-image,
 .video-background {
   position: fixed;
   top: 0;
@@ -43,8 +44,27 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
   filter: blur(1px);
+}
+
+.hero-fallback-image {
+  z-index: -3;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.hero-fallback-image.is-hidden {
+  opacity: 0;
+}
+
+.video-background {
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.video-background.is-ready {
+  opacity: 1;
 }
 
 .main-content {
@@ -80,17 +100,15 @@ a {
   font-weight: 400;
 }
 
-.house-icon {
-  display: inline-block;
-  transition: color 1s;
-  color: green;
-}
-.house-icon svg {
-  font-size: 5rem;
+.logo-img {
+  width: 180px; /* adjust */
+  height: auto;
+  object-fit: contain;
+  margin-bottom: -3rem;
 }
 
-.house-icon:hover svg {
-  color: rgb(249, 171, 24);
+.logo-img:hover{
+  color: orange;
 }
 
 .information-wrapper{
@@ -124,6 +142,15 @@ a {
 .what-we-do-wrapper h1 {
   color: rgb(0, 0, 0);
   margin: 2rem 0 2rem 0;
+}
+
+.what-we-do-wrapper h1 {
+  opacity: 0;
+  transform: translate3d(90px, 0, 0);
+}
+
+.what-we-do-wrapper.is-visible h1 {
+  animation: serviceSectionTitleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .what-we-do-services {
@@ -264,5 +291,25 @@ a {
 
   .call-us-now span {
     font-size: 3rem;
+  }
+}
+
+@keyframes serviceSectionTitleIn {
+  from {
+    opacity: 0;
+    transform: translate3d(90px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .what-we-do-wrapper h1 {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
   }
 }

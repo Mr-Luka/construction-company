@@ -18,7 +18,9 @@ export default function Footer({ logo, contactRef }) {
     <div className="footer">
       <div className="footer-content">
         <div className='neighborhood-text-footer'>
-          <span className='house-icon-footer'>{logo}</span>
+          <div className="logo-container">
+              <img src={logo} alt="Neighborhood Remodeling" className="logo-img" />
+          </div>
           <h2>Neighborhood</h2>
           <h3>REMODELING</h3>
         </div>
