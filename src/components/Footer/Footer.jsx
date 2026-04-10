@@ -57,22 +57,37 @@ export default function Footer({ logo, contactRef }) {
           </div>
         </div>
 
-        <div className='socials-f'>
-          <img src={yelp} alt='yelp' />
-          <img src={fb} alt='facebook' />
+<div className='socials-f'>
+  <a
+    href="https://www.yelp.com/biz/neighborhood-remodeling-costa-mesa?osq=Neighborhood+Remodeling&override_cta=Request+a+consultation"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Neighborhood Remodeling Yelp"
+  >
+    <img src={yelp} alt='yelp' />
+  </a>
 
-          <a
-            href="https://www.instagram.com/neighborhood_remodeling/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Neighborhood Remodeling Instagram"
-          >
-            <img src={instagram} alt='instagram' />
-          </a>
+  <a
+    href="https://www.facebook.com/people/Neighborhood-Remodeling/61574368602623/?mibextid=wwXIfr"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Neighborhood Remodeling Facebook"
+  >
+    <img src={fb} alt='facebook' />
+  </a>
 
-          <img src={x} alt='x-twitter' />
-          <img src={tiktok} alt='tik-tok' />
-        </div>
+  <a
+    href="https://www.instagram.com/neighborhood_remodeling/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Neighborhood Remodeling Instagram"
+  >
+    <img src={instagram} alt='instagram' />
+  </a>
+
+  <img src={x} alt='x-twitter' />
+  <img src={tiktok} alt='tik-tok' />
+</div>
       </div>
     </div>
   );

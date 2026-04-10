@@ -73,8 +73,7 @@ export default function NavBar({
                 <img src={logo} alt="Neighborhood Remodeling" className="logo-img1" />
             </button>
             <div className="nav-center-text">
-              <h3>Contractor: Bojana Vujosevic</h3>
-              <p>License # 1107770</p>
+              <h3>Lic #1153297</h3>
             </div>
             <button
               className="sideBar-icon"
