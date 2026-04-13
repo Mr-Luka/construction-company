@@ -86,7 +86,14 @@ export default function Footer({ logo, contactRef }) {
   </a>
 
   <img src={x} alt='x-twitter' />
-  <img src={tiktok} alt='tik-tok' />
+  <a
+    href="https://www.tiktok.com/@neighborhood.remo?_r=1&_t=ZT-95VtOGwsTTZ"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visit Neighborhood Remodeling TikTok"
+  >
+    <img src={tiktok} alt='tiktok' />
+  </a>
 </div>
       </div>
     </div>
